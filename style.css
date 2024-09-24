@@ -1,3 +1,54 @@
-body{
-    background-color: antiquewhite;
+/* Styles du header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f8f8; /* Couleur de fond du header */
+}
+
+.logo img {
+    max-width: 150px; /* Ajuste la taille du logo */
+}
+
+.main-navigation {
+    display: flex;
+}
+
+.main-navigation .menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem; /* Espace entre les éléments du menu */
+}
+
+.main-navigation a {
+    text-decoration: none;
+    color: #333; /* Couleur du texte des liens */
+}
+
+/* Styles du footer */
+.site-footer {
+    padding: 1rem;
+    background-color: #f1f1f1; /* Couleur de fond du footer */
+    text-align: center;
+}
+
+.footer-navigation {
+    margin-bottom: 1rem;
+}
+
+.footer-menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Espace entre les éléments du menu */
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: #333; /* Couleur du texte des liens */
+}
+
+.copyright {
+    font-size: 0.9rem; /* Taille du texte des droits d'auteur */
 }

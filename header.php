@@ -25,7 +25,6 @@
                     )
                 );
                 ?>
-                <p>Bonjour</p>
             </nav>
         </div>
     </header>

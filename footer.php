@@ -1,15 +1,21 @@
 <footer class="site-footer">
     <div class="container">
         <nav class="footer-navigation">
-            <ul>
-            <li><a href="/a-propos">À propos</a></li>
-<li><a href="/mentions-legales">Mentions légales</a></li>
-
-            </ul>
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'footer-menu',
+                    'menu_class'     => 'footer-menu',
+                )
+            );
+            ?>
         </nav>
         <p class="copyright">Tous droits réservés &copy; <?php echo date('Y'); ?></p>
     </div>
 </footer>
+
+
+
 
 <?php wp_footer(); ?>
 </body>
