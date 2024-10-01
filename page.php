@@ -1,25 +1,25 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The template for displaying all pages
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#page
  */
 
 get_header();
 
 /* Start the Loop */
 while ( have_posts() ) :
-	the_post();
-	get_template_part( 'template-parts/content/content-page' );
+    the_post();
 
-	// If comments are open or there is at least one comment, load up the comment template.
-	if ( comments_open() || get_comments_number() ) {
-		comments_template();
-	}
+    // Afficher le contenu de la page pour permettre la modification avec Elementor
+    the_content();
+
+    // Inclure les commentaires si activés
+    if ( comments_open() || get_comments_number() ) :
+        comments_template();
+    endif;
+
 endwhile; // End of the loop.
 
 get_footer();
+

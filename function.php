@@ -25,3 +25,22 @@ function register_my_menus() {
     );
 }
 add_action('init', 'register_my_menus');
+
+function ton_theme_enqueue_scripts() {
+    wp_enqueue_script('ton-script', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'ton_theme_enqueue_scripts');
+
+function auto_generate_photo_reference( $post_id ) {
+    // Vérifier si c'est bien un post de type 'photo' (ou le CPT que tu utilises)
+    if( get_post_type( $post_id ) == 'photo' ) {
+        $latest_ref = get_latest_reference(); // Fonction qui récupère la dernière référence utilisée (à définir)
+        
+        // Générer la nouvelle référence en l'incrémentant
+        $new_ref = 'bf' . str_pad( $latest_ref + 1, 4, '0', STR_PAD_LEFT );
+        
+        // Mettre à jour le champ personnalisé ACF avec la nouvelle référence
+        update_field( 'reference_photo', $new_ref, $post_id );
+    }
+}
+add_action( 'save_post', 'auto_generate_photo_reference' );

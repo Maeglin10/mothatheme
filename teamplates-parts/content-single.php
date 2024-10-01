@@ -1,40 +1,56 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="entry-header">
-        <?php
-        // Afficher le titre de l'article
-        the_title( '<h1 class="entry-title">', '</h1>' );
-
-        // Afficher la date et les métadonnées
-        if ( 'post' === get_post_type() ) :
-            ?>
-            <div class="entry-meta">
-                <?php
-                echo '<span class="posted-on">' . get_the_date() . '</span>';
-                ?>
-            </div><!-- .entry-meta -->
-        <?php endif; ?>
-    </header><!-- .entry-header -->
+        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+    </header>
 
     <div class="entry-content">
         <?php
-        // Afficher le contenu de l'article
+        // Afficher le contenu principal de l'article avec Elementor
         the_content();
-
-        // Pagination pour les longs articles
-        wp_link_pages(
-            array(
-                'before' => '<div class="page-links">' . __( 'Pages:', 'ton-theme' ),
-                'after'  => '</div>',
-            )
-        );
         ?>
-    </div><!-- .entry-content -->
+
+        <!-- Affichage des champs ACF pour les photos -->
+        <?php if ( have_rows('photo_gallery') ): ?>
+            <div class="photo-gallery">
+                <?php while( have_rows('photo_gallery') ): the_row(); ?>
+                    <div class="gallery-item">
+                        <img src="<?php the_sub_field('photo'); ?>" alt="<?php the_sub_field('photo_alt'); ?>">
+                    </div>
+                <?php endwhile; ?>
+            </div>
+
+            <!-- Navigation pour la galerie -->
+            <div class="gallery-navigation">
+                <button class="prev">Précédent</button>
+                <button class="next">Suivant</button>
+            </div>
+
+            <!-- Bouton Contact avec la référence photo en data attribute -->
+            <button id="contactButton" data-photo-ref="bf2385">Contact</button>
+
+        <?php else: ?>
+            <p>Aucune photo trouvée.</p>
+        <?php endif; ?>
+    </div>
 
     <footer class="entry-footer">
-        <?php
-        // Afficher les catégories et les tags
-        the_category(', ');
-        the_tags( '<span class="tag-links">' . __( 'Tags:', 'ton-theme' ) . ' ', ', ', '</span>' );
-        ?>
-    </footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+        <?php the_category(', '); ?>
+        <?php the_tags( '<span class="tag-links">', ', ', '</span>' ); ?>
+    </footer>
+
+    <!-- Modal de contact -->
+    <div id="contactModal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contactez-nous</h2>
+            <form id="contactForm">
+                <label for="photoRef">Réf. PHOTO :</label>
+                <input type="text" id="photoRef" name="photoRef" readonly>
+                <!-- Autres champs du formulaire ici -->
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</article>
+
+
