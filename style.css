@@ -52,3 +52,101 @@
 .copyright {
     font-size: 0.9rem; /* Taille du texte des droits d'auteur */
 }
+
+/* Hero Section */
+.hero-section {
+    width: 100%;
+    max-width: 1440px;
+    height: 962px;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-title {
+    position: absolute;
+    top: 402px;
+    left: 220px;
+    width: 1000px;
+    height: 142px;
+    z-index: 10;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Example background for contrast */
+}
+
+.hero-title h1 {
+    color: white;
+    font-size: 36px;
+}
+
+/* Catalogue Section */
+.catalogue-section {
+    max-width: 1148px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.photo-grid .gallery-item {
+    width: 564px;
+    height: 495px;
+    position: relative;
+}
+
+.photo-grid .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item .overlay-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay-icons {
+    opacity: 1;
+}
+
+.overlay-icons .icon {
+    margin: 0 10px;
+    color: white;
+    font-size: 24px;
+}
+
+#load-more {
+    display: block;
+    margin: 40px auto;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}

@@ -26,7 +26,8 @@
             </div>
 
             <!-- Bouton Contact avec la référence photo en data attribute -->
-            <button id="contactButton" data-photo-ref="bf2385">Contact</button>
+            <?php $photo_ref = get_field('référence'); ?>
+            <button id="contactButton" data-photo-ref="<?php echo esc_attr($photo_ref); ?>">Contact</button>
 
         <?php else: ?>
             <p>Aucune photo trouvée.</p>
