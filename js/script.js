@@ -8,68 +8,63 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fonction pour ouvrir la modale
     openModalBtn.addEventListener('click', function(event) {
         event.preventDefault();
-        modal.style.display = 'block';
+        modal.classList.add('show'); // Utilisation de classes pour la gestion de la modale
     });
 
     // Fonction pour fermer la modale
-    closeModalBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-    });
+    closeModalBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
 
-    // Fermer la modale quand on clique en dehors
-    modalOverlay.addEventListener('click', function() {
-        modal.style.display = 'none';
-    });
-});
-
-openModalBtn.addEventListener('click', function(event) {
-    event.preventDefault();
-    modal.classList.add('show');
-});
-
-closeModalBtn.addEventListener('click', function() {
-    modal.classList.remove('show');
-});
-
-jQuery(document).ready(function($) {
-    // Quand le bouton "Contact" est cliqué
-    $('#contactButton').on('click', function() {
-        var photoRef = $(this).data('photo-ref');
-        $('#photoRef').val(photoRef); // Préremplir le champ avec la référence photo
-        $('#contactModal').show(); // Afficher la popup
-    });
-
-    // Fermer la popup quand on clique sur la croix
-    $('.close').on('click', function() {
-        $('#contactModal').hide();
-    });
+    function closeModal() {
+        modal.classList.remove('show');
+    }
 
     // Navigation entre les photos
-    var currentIndex = 0;
-    var items = $('.gallery-item');
-    var itemAmt = items.length;
+    let currentIndex = 0;
+    const items = $('.gallery-item');
+    const itemAmt = items.length;
 
     function cycleItems() {
-        var item = $('.gallery-item').eq(currentIndex);
         items.hide();
-        item.css('display', 'inline-block');
+        items.eq(currentIndex).css('display', 'inline-block');
     }
 
     $('.next').click(function() {
-        currentIndex += 1;
-        if (currentIndex > itemAmt - 1) {
-            currentIndex = 0;
-        }
+        currentIndex = (currentIndex + 1) % itemAmt;
         cycleItems();
     });
 
     $('.prev').click(function() {
-        currentIndex -= 1;
-        if (currentIndex < 0) {
-            currentIndex = itemAmt - 1;
-        }
+        currentIndex = (currentIndex - 1 + itemAmt) % itemAmt;
         cycleItems();
     });
 
     cycleItems(); // Initialiser l'affichage
+
+    // Chargement de plus de photos via AJAX
+    let page = 1; // Commence à la page 1
+
+    $('#load-more-photos').on('click', function() {
+        page++; // Incrémente la page à chaque clic
+
+        // Envoie la requête AJAX pour charger plus de photos
+        $.ajax({
+            url: myAjax.ajax_url, // URL définie dans le localize_script de WordPress
+            type: 'POST',
+            data: {
+                action: 'load_more_photos', // Nom de l'action
+                page: page // Page actuelle
+            },
+            success: function(response) {
+                if (response) {
+                    $('.thumbnail-container').append(response); // Ajoute les nouvelles images
+                } else {
+                    $('#load-more-photos').hide(); // Cache le bouton si aucune photo supplémentaire n'est disponible
+                }
+            },
+            error: function() {
+                alert('Une erreur s\'est produite lors du chargement des photos.');
+            }
+        });
+    });
 });

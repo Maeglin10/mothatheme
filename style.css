@@ -54,14 +54,14 @@
 }
 
 /* Hero Section */
-.hero-section {
-    width: 100%;
+.hero {
+    position: relative;
     max-width: 1440px;
     height: 962px;
-    position: relative;
+    margin: 0 auto;
 }
 
-.hero-image img {
+.hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -70,83 +70,168 @@
 .hero-title {
     position: absolute;
     top: 402px;
-    left: 220px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 1000px;
     height: 142px;
     z-index: 10;
-    opacity: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Example background for contrast */
-}
-
-.hero-title h1 {
-    color: white;
-    font-size: 36px;
 }
 
 /* Catalogue Section */
 .catalogue-section {
     max-width: 1148px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 50px 0;
 }
 
 .filters {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
-.photo-grid {
+.filter-select {
+    width: 260px;
+    height: 43px;
+}
+
+.photo-gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
 }
 
-.photo-grid .gallery-item {
+.gallery-item {
     width: 564px;
     height: 495px;
+    background-color: #f0f0f0;
     position: relative;
 }
 
-.photo-grid .gallery-item img {
+.gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.gallery-item .overlay-icons {
+/* Button Charger Plus */
+.load-more-btn {
+    width: 272px;
+    height: 50px;
+    padding: 8px 15px;
+    border-radius: 2px;
+    background: #D8D8D8;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+
+/* Styles globaux pour la section des miniatures personnalisées */
+.custom-post-thumbnails {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.thumbnail-container-accueil {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Style pour chaque bloc de miniature */
+.custom-post-thumbnail {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-post-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.custom-post-thumbnail:hover img {
+    transform: scale(1.1);
+}
+
+/* Style pour l'overlay sur la miniature */
+.thumbnail-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     transition: opacity 0.3s ease;
 }
 
-.gallery-item:hover .overlay-icons {
+.custom-post-thumbnail:hover .thumbnail-overlay {
     opacity: 1;
 }
 
-.overlay-icons .icon {
-    margin: 0 10px;
-    color: white;
-    font-size: 24px;
+/* Style des icônes dans l'overlay */
+.thumbnail-overlay img {
+    width: 30px;
+    margin-bottom: 10px;
 }
 
-#load-more {
-    display: block;
-    margin: 40px auto;
+.fullscreen-icon {
+    color: white;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+/* Informations sur la photo (référence et catégorie) */
+.photo-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top: 1px solid #ccc;
+}
+
+.photo-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.photo-info-left {
+    text-align: left;
+}
+
+.photo-info-right {
+    text-align: right;
+}
+
+/* Style du bouton Charger plus */
+.view-all-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#load-more-posts {
     padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
+    background-color: #D8D8D8;
     border: none;
+    font-size: 16px;
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#load-more-posts:hover {
+    background-color: #b8b8b8;
 }
