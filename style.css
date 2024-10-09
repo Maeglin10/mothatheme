@@ -1,237 +1,224 @@
-/* Styles du header */
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f8f8f8; /* Couleur de fond du header */
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-.logo img {
-    max-width: 150px; /* Ajuste la taille du logo */
+/* Style H1 pour desktop */
+h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: 96px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 142.18px;
+    text-align: left;
 }
 
-.main-navigation {
-    display: flex;
+/* Style H2 pour desktop */
+h2 {
+    font-family: 'Space Mono', monospace;
+    font-size: 66px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 58px;
+    text-align: left;
 }
 
-.main-navigation .menu {
-    list-style: none;
-    display: flex;
-    gap: 1rem; /* Espace entre les éléments du menu */
+/* Style H3 pour desktop */
+h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 26.66px;
+    letter-spacing: 0.1em;
+    text-align: left;
 }
 
-.main-navigation a {
-    text-decoration: none;
-    color: #333; /* Couleur du texte des liens */
+/* Description photo desktop */
+.photo-description {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.73px;
+    letter-spacing: 0.1em;
+    text-align: left;
 }
 
-/* Styles du footer */
-.site-footer {
-    padding: 1rem;
-    background-color: #f1f1f1; /* Couleur de fond du footer */
-    text-align: center;
+/* Style pour les paragraphes */
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    text-align: left;
 }
 
-.footer-navigation {
-    margin-bottom: 1rem;
-}
 
-.footer-menu {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 1rem; /* Espace entre les éléments du menu */
-}
+/* ========== Hero Section Styles ========== */
 
-.footer-menu a {
-    text-decoration: none;
-    color: #333; /* Couleur du texte des liens */
-}
-
-.copyright {
-    font-size: 0.9rem; /* Taille du texte des droits d'auteur */
-}
-
-/* Hero Section */
-.hero {
+/* La section du Hero occupe toute la largeur et la hauteur de l'écran */
+.hero-section {
     position: relative;
-    max-width: 1440px;
-    height: 962px;
-    margin: 0 auto;
+    width: 100vw;
+    height: 100vh; /* 100% de la hauteur de la fenêtre */
+    overflow: hidden;
 }
 
-.hero-image {
+/* Lien de la section Hero pour rendre toute la zone cliquable */
+.hero-link {
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    text-decoration: none;
 }
 
-.hero-title {
+/* L'image en background couvre toute la section Hero */
+.hero-background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Image titre centrée dans le Hero avec un z-index plus grand */
+.hero-background img {
     position: absolute;
-    top: 402px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    width: 1000px;
-    height: 142px;
+    transform: translate(-50%, -50%);
     z-index: 10;
 }
 
-/* Catalogue Section */
-.catalogue-section {
-    max-width: 1148px;
-    margin: 0 auto;
-    padding: 50px 0;
-}
+/* ========== Filters Section Styles ========== */
 
-.filters {
+/* Section des filtres en disposition flex pour aligner les éléments */
+.filters-section {
     display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.filter-select {
-    width: 260px;
-    height: 43px;
-}
-
-.photo-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.gallery-item {
-    width: 564px;
-    height: 495px;
-    background-color: #f0f0f0;
-    position: relative;
-}
-
-.gallery-item img {
+    justify-content: space-between; /* Catégories à gauche, Trier à droite */
+    margin: 20px 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    padding: 0 20px; /* Ajustement pour les bords */
 }
 
-/* Button Charger Plus */
-.load-more-btn {
-    width: 272px;
-    height: 50px;
-    padding: 8px 15px;
-    border-radius: 2px;
-    background: #D8D8D8;
-    margin-top: 30px;
-    cursor: pointer;
+/* Style commun pour tous les éléments de filtre */
+.filter-item select {
+    width: 260px; /* Largeur fixe */
+    height: 42px; /* Hauteur fixe */
+    padding: 11px 18px; /* Espacement interne */
+    gap: 0; /* Pas de gap supplémentaire */
+    border-radius: 8px 0 0 0; /* Bords arrondis en haut à gauche */
+    border-width: 1.3px 0 0 0; /* Bordure supérieure fine */
+    border-color: #ccc; /* Couleur de la bordure */
+    justify-content: space-between; /* Alignement du texte dans les options */
+    opacity: 1; /* Rendre visible (contrairement à 0) */
+    background-color: #f9f9f9; /* Fond gris clair */
+    font-size: 14px; /* Taille du texte */
 }
 
-
-/* Styles globaux pour la section des miniatures personnalisées */
-.custom-post-thumbnails {
-    padding: 20px;
-    background-color: #f5f5f5;
+/* Filtre pour la catégorie et le format aligné à gauche */
+.filters-section .filter-item:nth-child(1),
+.filters-section .filter-item:nth-child(2) {
+    align-self: flex-start;
 }
 
+/* Filtre 'Trier par' aligné à droite */
+.filters-section .filter-item:nth-child(3) {
+    align-self: flex-end;
+}
+
+/* ========== Photo Catalog Section Styles ========== */
+
+/* Conteneur du catalogue photo avec une largeur fixe et centré */
+#photo-catalog {
+    width: 1148px; /* Largeur fixe pour le catalogue */
+    margin: 0 auto; /* Centrage horizontal */
+    padding: 20px 0; /* Espacement vertical */
+}
+
+/* Conteneur des miniatures avec flexbox pour aligner les photos */
 .thumbnail-container-accueil {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    flex-wrap: wrap; /* Pour permettre le retour à la ligne si nécessaire */
+    justify-content: space-between; /* Espace égal entre les miniatures */
+    gap: 20px; /* Espace entre les miniatures */
 }
 
-/* Style pour chaque bloc de miniature */
+/* Styles pour chaque miniature de photo */
 .custom-post-thumbnail {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 564px; /* Largeur fixe de chaque miniature */
+    height: 495px; /* Hauteur fixe de chaque miniature */
+    position: relative; /* Nécessaire pour les overlays */
+    overflow: hidden; /* Masquer les débordements */
 }
 
+.thumbnail-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Les images miniatures remplissent leur conteneur */
 .custom-post-thumbnail img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+    object-fit: cover; /* S'assure que l'image s'adapte sans distorsion */
 }
 
-.custom-post-thumbnail:hover img {
-    transform: scale(1.1);
-}
-
-/* Style pour l'overlay sur la miniature */
+/* Overlay de la miniature, visible au survol */
 .thumbnail-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.3s ease;
+    background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+    opacity: 0; /* Masqué par défaut */
+    transition: opacity 0.3s ease-in-out; /* Transition douce */
 }
 
+/* Affichage de l'overlay au survol de la miniature */
 .custom-post-thumbnail:hover .thumbnail-overlay {
-    opacity: 1;
+    opacity: 1; /* Visible au survol */
 }
 
-/* Style des icônes dans l'overlay */
-.thumbnail-overlay img {
-    width: 30px;
-    margin-bottom: 10px;
+/* Contenu de l'overlay (référence et catégorie de la photo) */
+.overlay-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff; /* Texte blanc */
+    font-size: 16px; /* Taille du texte */
 }
 
-.fullscreen-icon {
-    color: white;
-    font-size: 24px;
-    margin-top: 10px;
-}
+/* ========== Button "Load More" Styles ========== */
 
-/* Informations sur la photo (référence et catégorie) */
-.photo-info {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px 15px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-top: 1px solid #ccc;
-}
-
-.photo-info p {
-    margin: 0;
-    font-size: 14px;
-    color: #333;
-}
-
-.photo-info-left {
-    text-align: left;
-}
-
-.photo-info-right {
-    text-align: right;
-}
-
-/* Style du bouton Charger plus */
+/* Conteneur pour le bouton Charger plus */
 .view-all-button {
-    text-align: center;
-    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* Centrer le bouton horizontalement */
+    margin-top: 40px; /* Espacement entre les photos et le bouton */
 }
 
+/* Bouton "Charger plus" avec styles fixes */
 #load-more-posts {
-    padding: 10px 20px;
-    background-color: #D8D8D8;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    width: 272px; /* Largeur fixe */
+    height: 50px; /* Hauteur fixe */
+    padding: 8px 15px; /* Espacement interne */
+    gap: 10px; /* Espace entre le contenu interne (si icône par ex.) */
+    border-radius: 2px 0 0 0; /* Bords arrondis uniquement en haut à gauche */
+    border: none; /* Retrait de la bordure */
+    background-color: #D8D8D8; /* Couleur de fond */
+    color: #333; /* Couleur du texte */
+    font-size: 16px; /* Taille du texte */
+    cursor: pointer; /* Curseur pointeur pour l'interactivité */
+    opacity: 1; /* Opacité pleine */
+    transition: opacity 0.3s ease-in-out; /* Transition pour l'effet de survol */
 }
 
+/* Effet de survol pour le bouton */
 #load-more-posts:hover {
-    background-color: #b8b8b8;
+    opacity: 0.8; /* Réduction de l'opacité au survol */
 }

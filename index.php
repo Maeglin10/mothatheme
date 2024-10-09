@@ -27,7 +27,7 @@ get_header(); // Inclusion de l'en-tête du site
             ?>
             <a href="<?php echo $photo_link; ?>" class="hero-link">
                 <div class="hero-background" style="background-image: url('<?php echo esc_url($thumbnail_url); ?>');">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '../motatheme/assets/images/Titre-header.png'); ?>"
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Titre-header.png'); ?>"
                         alt="Titre">
                 </div>
             </a>

@@ -21,7 +21,7 @@
                 <a href="<?php the_permalink(); ?>">
                     <?php if (has_post_thumbnail()) : ?>
                         <div class="thumbnail-wrapper">
-                            <?php the_post_thumbnail('medium'); ?>
+                            <?php the_post_thumbnail('large'); ?>
                             <div class="thumbnail-overlay">
                                 <div class="overlay-content">
                                     <p class="photo-reference"><?php echo esc_html(get_field('reference_photo')); ?></p>
