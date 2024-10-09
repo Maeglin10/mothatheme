@@ -98,6 +98,8 @@ p {
 .filters-section {
     display: flex;
     justify-content: space-between; /* Catégories à gauche, Trier à droite */
+    align-items: center;
+    max-width: 1148px; /* Même largeur que le catalogue photo */
     margin: 20px 0;
     width: 100%;
     padding: 0 20px; /* Ajustement pour les bords */
@@ -127,6 +129,31 @@ p {
 /* Filtre 'Trier par' aligné à droite */
 .filters-section .filter-item:nth-child(3) {
     align-self: flex-end;
+}
+
+/* Applique seulement ces marges supplémentaires aux filtres si besoin */
+.filter-item:not(:last-child) {
+    margin-right: 30px; /* Espace entre "Catégorie" et "Format" */
+}
+
+/* Pour le dernier filtre "Trier par" */
+#filter-date {
+    margin-left: auto; /* Positionner à droite */
+}
+
+/* Style spécifique pour le filtre "Catégorie" */
+#filter-category {
+    margin-right: 30px; /* Espace entre "Catégorie" et "Format" */
+}
+
+/* Style spécifique pour le filtre "Format" */
+#filter-format {
+    margin-right: auto; /* Pousse le filtre "Trier par" à droite */
+}
+
+/* Style pour le filtre "Trier par" */
+#filter-date {
+    margin-left: auto; /* Positionne le filtre à droite */
 }
 
 /* ========== Photo Catalog Section Styles ========== */
@@ -221,4 +248,60 @@ p {
 /* Effet de survol pour le bouton */
 #load-more-posts:hover {
     opacity: 0.8; /* Réduction de l'opacité au survol */
+}
+
+/* Style général du conteneur du formulaire */
+.custom-form {
+    width: 597px;
+    height: 769px;
+    padding: 20px;
+    margin: 0 auto; /* Centrer le formulaire sur la page */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Image du haut du formulaire */
+.form-header-image {
+    width: 885.96px;
+    height: 106.05px;
+    margin-bottom: 20px;
+    opacity: 0; /* Réglage d'opacité à 0 */
+}
+
+/* Style commun pour les champs texte et email */
+.custom-input {
+    width: 263px;
+    height: 40px;
+    margin-bottom: 20px; /* Espacement entre les champs */
+    border-radius: 8px 0 0 0;
+    border: 1px solid transparent; /* Bordure transparente pour l'alignement */
+    padding: 10px;
+    background-color: #f9f9f9;
+    opacity: 0; /* Opacité à 0 pour correspondre à la demande */
+}
+
+/* Champ message avec hauteur plus grande */
+.custom-textarea {
+    width: 263px;
+    height: 210px;
+    margin-bottom: 20px;
+    border-radius: 8px 0 0 0;
+    border: 1px solid transparent;
+    padding: 10px;
+    background-color: #f9f9f9;
+    opacity: 0; /* Opacité à 0 */
+}
+
+/* Bouton de soumission "ENVOYER" */
+.custom-submit {
+    width: 263px; /* Largeur fixe */
+    height: 50px; /* Hauteur fixe */
+    margin-top: 683px; /* Positionné selon les instructions */
+    margin-left: 165px;
+    padding: 8px 15px;
+    border-radius: 2px 0 0 0;
+    background-color: #D8D8D8;
+    opacity: 0; /* Opacité à 0 */
+    cursor: pointer; /* Afficher le curseur pointer pour le bouton */
 }
