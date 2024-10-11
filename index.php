@@ -88,7 +88,7 @@ get_header(); // Inclusion de l'en-tête du site
 <section id="photo-catalog">
     <?php
     // Inclusion du template de bloc de photos pour afficher la galerie
-    get_template_part('template-parts/photo_block', 'photo');
+    get_template_part('template-part/photo_block', 'photo');
     ?>
 </section>
 

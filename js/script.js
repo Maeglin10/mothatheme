@@ -1,29 +1,39 @@
-
-
 document.addEventListener('DOMContentLoaded', function () {
     // Sélection des éléments
     const modal = document.getElementById('contactModal');
-    const openModalBtn = document.querySelector('a[data-toggle="modal"]');
+    const openModalLinks = document.querySelectorAll('.open-contact-modal'); // Tous les liens avec cette classe
     const closeModalBtn = document.querySelector('.modal-close');
     const modalOverlay = document.querySelector('.modal-overlay');
 
-    /** Fonction pour ouvrir la modale - affiche erreur à corriger !
-    openModalBtn.addEventListener('click', function (event) {
-        event.preventDefault();
-        modal.classList.add('show'); // Utilisation de classes pour la gestion de la modale
+    // Ouvrir la modale
+    openModalLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            modal.classList.add('show'); // Affiche la modale
+        });
     });
 
-    // closeModalBtn.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', closeModal);
-
-    // function closeModal() {
-        modal.classList.remove('show');
+    // Fermer la modale avec le bouton de fermeture
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', function () {
+            modal.classList.remove('show');
+        });
     }
-     */
 
-    /**  Navigation entre les photos
+    // Fermer la modale en cliquant sur l'overlay
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', function () {
+            modal.classList.remove('show');
+        });
+    }
+});
+
+
+    
+
+    /**  Navigation entre les photos */
     let currentIndex = 0;
-    const items = $('.gallery-item');
+    const items = jQuery('.gallery-item'); // Utilisez jQuery ici
     const itemAmt = items.length;
 
     function cycleItems() {
@@ -31,49 +41,47 @@ document.addEventListener('DOMContentLoaded', function () {
         items.eq(currentIndex).css('display', 'inline-block');
     }
         
-
-    $('.next').click(function () {
+    jQuery('.next').click(function () { // Utilisez jQuery ici
         currentIndex = (currentIndex + 1) % itemAmt;
         cycleItems();
     });
 
-    $('.prev').click(function () {
+    jQuery('.prev').click(function () { // Utilisez jQuery ici
         currentIndex = (currentIndex - 1 + itemAmt) % itemAmt;
         cycleItems();
     });
 
     cycleItems(); // Initialiser l'affichage
-    */
 
-
-
-
-
-    /** $('#load-more-posts').on('click', function () {
-        console.log('test-function')
+    /** Chargement de plus de photos via AJAX */
+    jQuery('#load-more-posts').on('click', function () {
+        console.log('test-function');
         // Chargement de plus de photos via AJAX
-        let inputPage = $('input[name="page"]');
+        let inputPage = jQuery('input[name="page"]');
         let page = parseInt(inputPage.val());
         page++; // Incrémente le numéro de page si "load" est vrai, sinon réinitialise à 1.
-        const category = $('select[name="filter-category"]').val()
-       
-       
+        const category = jQuery('select[name="filter-category"]').val();
+        const format = jQuery('select[name="format-filter"]').val();
+        const dateSort = jQuery('select[name="date-sort"]').val();
+
         // Envoie la requête AJAX pour charger plus de photos
-        $.ajax({
+        jQuery.ajax({
             url: myAjax.ajax_url, // URL définie dans le localize_script de WordPress
             type: 'GET',
             data: {
                 action: 'load_more_photos', // Nom de l'action
                 page,
-                category
+                category,
+                format,
+                dateSort
             },
             success: function (response) {
                 if (response) {
-                    $('.thumbnail-container').append(response); // Ajoute les nouvelles images
-                    console.log('test-if')
+                    jQuery('.thumbnail-container').append(response); // Ajoute les nouvelles images
+                    console.log('test-if');
                 } else {
-                    $load_more_photos.hide(); // Cache le bouton si aucune photo supplémentaire n'est disponible
-                    console.log('test-else')
+                    jQuery('#load-more-posts').hide(); // Cache le bouton si aucune photo supplémentaire n'est disponible
+                    console.log('test-else');
                 }
             },
             error: function () {
@@ -81,9 +89,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-    */
 
+
+jQuery(document).ready(function($) {
+    console.log('jQuery est chargé');
 });
+
 
 jQuery(document).ready(function ($) {
     $('#load-more-posts').on('click', function () {
@@ -121,4 +132,4 @@ jQuery(document).ready(function ($) {
             }
         });
     });
-});
+})

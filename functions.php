@@ -12,10 +12,13 @@ function theme_enqueue_styles_scripts() {
     wp_enqueue_script('jquery');
 
     // Enqueue votre script principal
-    wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.1.1', true);
+    wp_enqueue_script('custom-script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.1.1', true);
 
+    // Localisation de la variable AJAX
+    wp_localize_script('custom-script', 'myAjax', array(
+        'ajax_url' => admin_url('admin-ajax.php')
+    ));
 }
-
 
 // Hook pour charger les styles et scripts
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles_scripts');
@@ -101,16 +104,3 @@ function load_more_photos() {
 }
 add_action('wp_ajax_load_more_photos', 'load_more_photos'); // Pour les utilisateurs connectés
 add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos'); // Pour les utilisateurs non connectés
-
-// Enregistre le script et la localisation AJAX
-function enqueue_my_custom_script() {
-    // Localisation de la variable AJAX
-    wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.1.1', true);
-    wp_localize_script('script', 'myAjax', array(
-        'ajax_url' => admin_url('admin-ajax.php')
-    ));
-}
-
-add_action('wp_enqueue_scripts', 'enqueue_my_custom_script');
-
-
