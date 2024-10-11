@@ -61,7 +61,8 @@ p {
 .hero-section {
     position: relative;
     width: 100vw;
-    height: 100vh; /* 100% de la hauteur de la fenêtre */
+    height: 100vh;
+    /* 100% de la hauteur de la fenêtre */
     overflow: hidden;
 }
 
@@ -97,27 +98,41 @@ p {
 /* Section des filtres en disposition flex pour aligner les éléments */
 .filters-section {
     display: flex;
-    justify-content: space-between; /* Catégories à gauche, Trier à droite */
+    justify-content: space-between;
+    /* Catégories à gauche, Trier à droite */
     align-items: center;
-    max-width: 1148px; /* Même largeur que le catalogue photo */
+    max-width: 1148px;
+    /* Même largeur que le catalogue photo */
     margin: 20px 0;
     width: 100%;
-    padding: 0 20px; /* Ajustement pour les bords */
+    padding: 0 20px;
+    /* Ajustement pour les bords */
 }
 
 /* Style commun pour tous les éléments de filtre */
 .filter-item select {
-    width: 260px; /* Largeur fixe */
-    height: 42px; /* Hauteur fixe */
-    padding: 11px 18px; /* Espacement interne */
-    gap: 0; /* Pas de gap supplémentaire */
-    border-radius: 8px 0 0 0; /* Bords arrondis en haut à gauche */
-    border-width: 1.3px 0 0 0; /* Bordure supérieure fine */
-    border-color: #ccc; /* Couleur de la bordure */
-    justify-content: space-between; /* Alignement du texte dans les options */
-    opacity: 1; /* Rendre visible (contrairement à 0) */
-    background-color: #f9f9f9; /* Fond gris clair */
-    font-size: 14px; /* Taille du texte */
+    width: 260px;
+    /* Largeur fixe */
+    height: 42px;
+    /* Hauteur fixe */
+    padding: 11px 18px;
+    /* Espacement interne */
+    gap: 0;
+    /* Pas de gap supplémentaire */
+    border-radius: 8px 0 0 0;
+    /* Bords arrondis en haut à gauche */
+    border-width: 1.3px 0 0 0;
+    /* Bordure supérieure fine */
+    border-color: #ccc;
+    /* Couleur de la bordure */
+    justify-content: space-between;
+    /* Alignement du texte dans les options */
+    opacity: 1;
+    /* Rendre visible (contrairement à 0) */
+    background-color: #f9f9f9;
+    /* Fond gris clair */
+    font-size: 14px;
+    /* Taille du texte */
 }
 
 /* Filtre pour la catégorie et le format aligné à gauche */
@@ -133,52 +148,67 @@ p {
 
 /* Applique seulement ces marges supplémentaires aux filtres si besoin */
 .filter-item:not(:last-child) {
-    margin-right: 30px; /* Espace entre "Catégorie" et "Format" */
+    margin-right: 30px;
+    /* Espace entre "Catégorie" et "Format" */
 }
 
 /* Pour le dernier filtre "Trier par" */
 #filter-date {
-    margin-left: auto; /* Positionner à droite */
+    margin-left: auto;
+    /* Positionner à droite */
 }
 
 /* Style spécifique pour le filtre "Catégorie" */
 #filter-category {
-    margin-right: 30px; /* Espace entre "Catégorie" et "Format" */
+    margin-right: 30px;
+    /* Espace entre "Catégorie" et "Format" */
 }
 
 /* Style spécifique pour le filtre "Format" */
 #filter-format {
-    margin-right: auto; /* Pousse le filtre "Trier par" à droite */
+    margin-right: auto;
+    /* Pousse le filtre "Trier par" à droite */
 }
 
 /* Style pour le filtre "Trier par" */
 #filter-date {
-    margin-left: auto; /* Positionne le filtre à droite */
+    margin-left: auto;
+    /* Positionne le filtre à droite */
 }
 
 /* ========== Photo Catalog Section Styles ========== */
 
 /* Conteneur du catalogue photo avec une largeur fixe et centré */
 #photo-catalog {
-    width: 1148px; /* Largeur fixe pour le catalogue */
-    margin: 0 auto; /* Centrage horizontal */
-    padding: 20px 0; /* Espacement vertical */
+    width: 1148px;
+    /* Largeur fixe pour le catalogue */
+    margin: 0 auto;
+    /* Centrage horizontal */
+    padding: 20px 0;
+    /* Espacement vertical */
 }
 
 /* Conteneur des miniatures avec flexbox pour aligner les photos */
 .thumbnail-container-accueil {
     display: flex;
-    flex-wrap: wrap; /* Pour permettre le retour à la ligne si nécessaire */
-    justify-content: space-between; /* Espace égal entre les miniatures */
-    gap: 20px; /* Espace entre les miniatures */
+    flex-wrap: wrap;
+    /* Pour permettre le retour à la ligne si nécessaire */
+    justify-content: space-between;
+    /* Espace égal entre les miniatures */
+    gap: 20px;
+    /* Espace entre les miniatures */
 }
 
 /* Styles pour chaque miniature de photo */
 .custom-post-thumbnail {
-    width: 564px; /* Largeur fixe de chaque miniature */
-    height: 495px; /* Hauteur fixe de chaque miniature */
-    position: relative; /* Nécessaire pour les overlays */
-    overflow: hidden; /* Masquer les débordements */
+    width: 564px;
+    /* Largeur fixe de chaque miniature */
+    height: 495px;
+    /* Hauteur fixe de chaque miniature */
+    position: relative;
+    /* Nécessaire pour les overlays */
+    overflow: hidden;
+    /* Masquer les débordements */
 }
 
 .thumbnail-wrapper {
@@ -191,7 +221,8 @@ p {
 .custom-post-thumbnail img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* S'assure que l'image s'adapte sans distorsion */
+    object-fit: cover;
+    /* S'assure que l'image s'adapte sans distorsion */
 }
 
 /* Overlay de la miniature, visible au survol */
@@ -201,14 +232,18 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
-    opacity: 0; /* Masqué par défaut */
-    transition: opacity 0.3s ease-in-out; /* Transition douce */
+    background: rgba(0, 0, 0, 0.6);
+    /* Fond semi-transparent */
+    opacity: 0;
+    /* Masqué par défaut */
+    transition: opacity 0.3s ease-in-out;
+    /* Transition douce */
 }
 
 /* Affichage de l'overlay au survol de la miniature */
 .custom-post-thumbnail:hover .thumbnail-overlay {
-    opacity: 1; /* Visible au survol */
+    opacity: 1;
+    /* Visible au survol */
 }
 
 /* Contenu de l'overlay (référence et catégorie de la photo) */
@@ -216,104 +251,152 @@ p {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    color: #fff; /* Texte blanc */
-    font-size: 16px; /* Taille du texte */
+    color: #fff;
+    /* Texte blanc */
+    font-size: 16px;
+    /* Taille du texte */
 }
+
+
 
 /* ========== Button "Load More" Styles ========== */
 
 /* Conteneur pour le bouton Charger plus */
 .view-all-button {
     display: flex;
-    justify-content: center; /* Centrer le bouton horizontalement */
-    margin-top: 40px; /* Espacement entre les photos et le bouton */
+    justify-content: center;
+    /* Centrer le bouton horizontalement */
+    margin-top: 40px;
+    /* Espacement entre les photos et le bouton */
 }
 
 /* Bouton "Charger plus" avec styles fixes */
 #load-more-posts {
-    width: 272px; /* Largeur fixe */
-    height: 50px; /* Hauteur fixe */
-    padding: 8px 15px; /* Espacement interne */
-    gap: 10px; /* Espace entre le contenu interne (si icône par ex.) */
-    border-radius: 2px 0 0 0; /* Bords arrondis uniquement en haut à gauche */
-    border: none; /* Retrait de la bordure */
-    background-color: #D8D8D8; /* Couleur de fond */
-    color: #333; /* Couleur du texte */
-    font-size: 16px; /* Taille du texte */
-    cursor: pointer; /* Curseur pointeur pour l'interactivité */
-    opacity: 1; /* Opacité pleine */
-    transition: opacity 0.3s ease-in-out; /* Transition pour l'effet de survol */
+    width: 272px;
+    /* Largeur fixe */
+    height: 50px;
+    /* Hauteur fixe */
+    padding: 8px 15px;
+    /* Espacement interne */
+    gap: 10px;
+    /* Espace entre le contenu interne (si icône par ex.) */
+    border-radius: 2px 0 0 0;
+    /* Bords arrondis uniquement en haut à gauche */
+    border: none;
+    /* Retrait de la bordure */
+    background-color: #D8D8D8;
+    /* Couleur de fond */
+    color: #333;
+    /* Couleur du texte */
+    font-size: 16px;
+    /* Taille du texte */
+    cursor: pointer;
+    /* Curseur pointeur pour l'interactivité */
+    opacity: 1;
+    /* Opacité pleine */
+    transition: opacity 0.3s ease-in-out;
+    /* Transition pour l'effet de survol */
 }
 
 /* Effet de survol pour le bouton */
 #load-more-posts:hover {
-    opacity: 0.8; /* Réduction de l'opacité au survol */
+    opacity: 0.8;
+    /* Réduction de l'opacité au survol */
 }
+
+
+
+/* ========== Formulaire ========== */
+
 
 /* Style général du conteneur du formulaire */
 .custom-form {
-    width: 597px;
-    height: 769px;
-    padding: 20px;
-    margin: 0 auto; /* Centrer le formulaire sur la page */
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
 }
 
 /* Image du haut du formulaire */
 .form-header-image {
     width: 885.96px;
     height: 106.05px;
-    margin-bottom: 20px;
-    opacity: 0; /* Réglage d'opacité à 0 */
+    top: 18px;
+    left: -141.49px;
+    gap: 0px;
+    opacity: 0px;
 }
 
 /* Style commun pour les champs texte et email */
 .custom-input {
-    width: 263px;
+    width: 100%;
+    /* Champ prend toute la largeur du container */
+    max-width: 263px;
+    /* Largeur maximale des champs */
     height: 40px;
-    margin-bottom: 20px; /* Espacement entre les champs */
-    border-radius: 8px; /* Arrondir tous les coins */
-    border: 1px solid #ccc; /* Bordure visible */
+    /* Espacement entre les champs */
+    border-radius: 8px;
+    /* Arrondir tous les coins */
+    border: 1px solid #ccc;
+    /* Bordure visible */
     padding: 10px;
     background-color: #f9f9f9;
-    text-align: center; /* Centrer le texte */
+    text-align: center;
+    /* Centrer le texte */
+    box-sizing: border-box;
+    /* Inclure le padding dans la largeur totale */
 }
 
 /* Champ message avec hauteur plus grande */
 .custom-textarea {
-    width: 263px;
+    width: 100%;
+    max-width: 263px;
     height: 210px;
     margin-bottom: 20px;
-    border-radius: 8px; /* Arrondir tous les coins */
-    border: 1px solid #ccc; /* Bordure visible */
+    border-radius: 8px;
+    /* Arrondir tous les coins */
+    border: 1px solid #ccc;
+    /* Bordure visible */
     padding: 10px;
     background-color: #f9f9f9;
-    text-align: center; /* Centrer le texte */
+    text-align: center;
+    /* Centrer le texte */
+    box-sizing: border-box;
 }
-
 
 /* Bouton de soumission "ENVOYER" */
 .custom-submit {
-    width: 263px; /* Largeur fixe */
-    height: 50px; /* Hauteur fixe */
-    margin-top: 683px; /* Positionné selon les instructions */
-    margin-left: 165px;
+    width: 100%;
+    max-width: 263px;
+    /* Largeur fixe */
+    height: 50px;
+    /* Hauteur fixe */
+    margin: 0 auto;
+    /* Centrer le bouton */
+    display: block;
+    /* Prendre toute la largeur disponible */
     padding: 8px 15px;
     border-radius: 2px 0 0 0;
     background-color: #D8D8D8;
-    opacity: 0; /* Opacité à 0 */
-    cursor: pointer; /* Afficher le curseur pointer pour le bouton */
+    opacity: 1;
+    /* Opacité à 1 pour le rendre visible */
+    cursor: pointer;
+    /* Afficher le curseur pointer pour le bouton */
+    text-align: center;
+    /* Centrer le texte du bouton */
+    font-size: 16px;
+    text-transform: uppercase;
+    /* Texte en majuscule */
 }
 
+/* Styles pour la modale */
 .modal {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 95%;
     z-index: 999;
     justify-content: center;
     align-items: center;
@@ -331,7 +414,7 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 200%;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -341,6 +424,7 @@ p {
     border-radius: 10px;
     position: relative;
     z-index: 1000;
+    width: 600px;
 }
 
 .modal-close {
