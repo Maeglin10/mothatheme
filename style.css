@@ -366,27 +366,20 @@ p {
 
 /* Bouton de soumission "ENVOYER" */
 .custom-submit {
-    width: 100%;
-    max-width: 263px;
-    /* Largeur fixe */
+    width: 263px;
     height: 50px;
-    /* Hauteur fixe */
     margin: 0 auto;
-    /* Centrer le bouton */
     display: block;
-    /* Prendre toute la largeur disponible */
     padding: 8px 15px;
     border-radius: 2px 0 0 0;
+    border-style: hidden;
     background-color: #D8D8D8;
     opacity: 1;
-    /* Opacité à 1 pour le rendre visible */
     cursor: pointer;
-    /* Afficher le curseur pointer pour le bouton */
     text-align: center;
-    /* Centrer le texte du bouton */
-    font-size: 16px;
-    text-transform: uppercase;
-    /* Texte en majuscule */
+    font-size: 12px;
+    font-family: 'Space Mono';
+    font-weight: 400;
 }
 
 /* Styles pour la modale */
