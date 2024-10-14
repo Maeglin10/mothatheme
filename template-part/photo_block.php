@@ -30,7 +30,7 @@
                                                     alt="icone-oeil">
                                             </div>
                                             <!-- Référence en bas à gauche -->
-                                            <p class="photo-reference"><?php echo esc_html(get_field('reference_photo')); ?></p>
+                                            <p class="photo-reference"><?php echo esc_html(get_field('reference')); ?></p>
                                             <!-- Catégorie en bas à droite -->
                                             <p class="photo-category">
                                                 <?php

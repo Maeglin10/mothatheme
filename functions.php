@@ -14,6 +14,10 @@ function theme_enqueue_styles_scripts() {
     // Enqueue votre script principal
     wp_enqueue_script('custom-script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.1.1', true);
 
+    // Enqueue votre script pour page photo seule
+    wp_enqueue_script('modal-scripts-photo', get_template_directory_uri() . '/js/modal-scripts-photo.js', array('jquery'), null, true);
+
+
     // Localisation de la variable AJAX
     wp_localize_script('custom-script', 'myAjax', array(
         'ajax_url' => admin_url('admin-ajax.php')

@@ -238,6 +238,9 @@ p {
     /* Masqué par défaut */
     transition: opacity 0.3s ease-in-out;
     /* Transition douce */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Affichage de l'overlay au survol de la miniature */
@@ -248,16 +251,37 @@ p {
 
 /* Contenu de l'overlay (référence et catégorie de la photo) */
 .overlay-content {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+    position: relative;
+    width: 100%;
+    height: 100%;
     color: #fff;
     /* Texte blanc */
     font-size: 16px;
     /* Taille du texte */
 }
 
+.icon-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
+.photo-reference {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 14px;
+    color: white;
+}
+
+.photo-category {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: white;
+}
 
 /* ========== Button "Load More" Styles ========== */
 
