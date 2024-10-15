@@ -450,3 +450,243 @@ p {
     right: 10px;
     cursor: pointer;
 }
+
+/* Styles généraux pour la page single photo */
+.main-content-post {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Conteneur principal pour les informations de la photo */
+.photo-single-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.photo-single-container .left-half {
+    width: 45%;
+}
+
+.photo-single-container .right-half {
+    width: 45%;
+}
+
+.photo-single-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* Styles pour les détails de la photo (Moitié gauche) */
+
+.left-half {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.left-half h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.left-half p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Conteneur secondaire (contact et miniature) */
+.secondary-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.secondary-container p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.contact-button {
+    width: 263px;
+    height: 50px;
+    margin: 0 auto;
+    display: block;
+    padding: 8px 15px;
+    border-radius: 2px 0 0 0;
+    border-style: hidden;
+    background-color: #D8D8D8;
+    opacity: 1;
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Space Mono';
+    font-weight: 400;
+}
+
+.contact-button:hover {
+    background-color: #0056b3;
+}
+
+/* Miniature et flèches de navigation */
+.miniature-photo {
+    display: flex;
+    align-items: center;
+}
+
+.miniature-photo img.thumbnail {
+    width: 81px;
+    height: 71px;
+    margin: 0 10px;
+}
+
+.navigation-arrows img {
+    width: 24px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Section des photos similaires */
+.related-photos {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.related-photos h3 {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.related-photos .related-photo-item {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.related-photos .related-photo-item img {
+    width: 564px;
+    height: 495px;
+    object-fit: cover;
+}
+
+.related-photos .related-photo-item h4 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #333;
+    font-weight: normal;
+}
+
+/* Navigation entre les posts */
+.post-navigation .meta-nav {
+    font-weight: bold;
+    color: #333;
+}
+
+.post-navigation .post-title {
+    font-size: 1.2rem;
+    color: #007BFF;
+}
+
+/* Ajustements pour la version mobile */
+@media (max-width: 768px) {
+    .photo-single-container {
+        flex-direction: column;
+    }
+
+    .photo-single-container .left-half,
+    .photo-single-container .right-half {
+        width: 100%;
+    }
+
+    .secondary-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .miniature-photo {
+        margin-top: 20px;
+    }
+
+    .related-photos .related-photo-item {
+        width: 100%;
+    }
+
+    .related-photos .related-photo-item img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
+/* ========== Responsive Styles ========== */
+
+/* Appliquer les styles mobiles à partir de 768px de large */
+@media (max-width: 768px) {
+    /* Styles H1 pour mobile */
+    h1 {
+        font-family: 'Space Mono', monospace;
+        font-size: 27.59px;
+        font-style: italic;
+        font-weight: 700;
+        line-height: 40.86px;
+        text-align: left;
+    }
+
+    /* Styles H2 pour mobile (réduire la taille si nécessaire) */
+    h2 {
+        font-family: 'Space Mono', monospace;
+        font-size: 36px; /* Ajustez si nécessaire */
+        font-style: italic;
+        font-weight: 400;
+        line-height: 40px; /* Ajustez si nécessaire */
+        text-align: left;
+    }
+
+    /* Styles H3 pour mobile */
+    h3 {
+        font-family: 'Space Mono', monospace;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 26.66px;
+        letter-spacing: 0.1em;
+        text-align: left;
+    }
+
+    /* Styles pour les paragraphes */
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 21px;
+        text-align: left;
+    }
+
+    /* Ajustement du conteneur du catalogue photo */
+    #photo-catalog {
+        width: 317.66px;
+        margin: 0 auto; /* Centrer le catalogue */
+    }
+
+    /* Conteneur des miniatures pour affichage d'une photo par ligne */
+    .thumbnail-container-accueil {
+        flex-direction: column; /* Disposition en colonne */
+        align-items: center; /* Centrer les éléments */
+    }
+
+    /* Styles pour chaque miniature de photo */
+    .custom-post-thumbnail {
+        width: 100%; /* Prendre toute la largeur du conteneur */
+        margin-top: 25px; /* Espace entre les photos */
+        height: 278.8px;
+    }
+
+    /* Ajustement des miniatures */
+    .custom-post-thumbnail img {
+        width: 100%;
+        height: auto; /* Maintenir le ratio d'aspect */
+    }
+}

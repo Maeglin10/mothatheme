@@ -5,6 +5,7 @@ function theme_enqueue_styles_scripts() {
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
     wp_enqueue_script('jquery');
     wp_enqueue_script('custom-script', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.1.1', true);
+    wp_enqueue_script('photo-solo-script', get_template_directory_uri() . '/js/photo_solo.js', array('jquery'), '1.0', true);
 
     wp_localize_script('custom-script', 'myAjax', array(
         'ajax_url' => admin_url('admin-ajax.php')
