@@ -1,8 +1,11 @@
 <section id="photo-catalog">
     <div class="custom-post-thumbnails">
+        <!-- Champ caché pour suivre la page actuelle -->
+        <input type="hidden" name="page" value="1" />
+
         <div id="thumbnail-container" class="thumbnail-container-accueil">
             <?php
-            // Arguments pour la requête des publications personnalisées
+            // Arguments pour la requête des publications personnalisées (8 photos pour le chargement initial)
             $args_custom_posts = array(
                 'post_type' => 'photo',          // Type de publication personnalisée
                 'posts_per_page' => 8,           // Nombre de publications à afficher par page
@@ -24,14 +27,10 @@
                                     <?php the_post_thumbnail('large'); ?>
                                     <div class="thumbnail-overlay">
                                         <div class="overlay-content">
-                                            <!-- Icône au centre -->
                                             <div class="icon-center">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png"
-                                                    alt="icone-oeil">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" alt="icone-oeil">
                                             </div>
-                                            <!-- Référence en bas à gauche -->
                                             <p class="photo-reference"><?php echo esc_html(get_field('reference')); ?></p>
-                                            <!-- Catégorie en bas à droite -->
                                             <p class="photo-category">
                                                 <?php
                                                 $related_categories = get_the_terms(get_the_ID(), 'categorie');
@@ -45,7 +44,6 @@
                                             </p>
                                         </div>
                                     </div>
-
                                 </div>
                             <?php endif; ?>
                         </a>
@@ -56,6 +54,8 @@
                 <p>Aucune photo à afficher.</p>
             <?php endif; ?>
         </div>
+
+        <!-- Bouton pour charger plus de posts -->
         <div class="view-all-button">
             <button id="load-more-posts">Charger plus</button>
         </div>

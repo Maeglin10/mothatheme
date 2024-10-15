@@ -53,35 +53,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     cycleItems(); // Initialiser l'affichage
 
-    /** Chargement de plus de photos via AJAX */
     jQuery('#load-more-posts').on('click', function () {
-        console.log('test-function');
-        // Chargement de plus de photos via AJAX
+        console.log('Chargement de plus de photos déclenché'); // Vérifie si le clic est bien détecté
         let inputPage = jQuery('input[name="page"]');
         let page = parseInt(inputPage.val());
-        page++; // Incrémente le numéro de page si "load" est vrai, sinon réinitialise à 1.
-        const category = jQuery('select[name="filter-category"]').val();
-        const format = jQuery('select[name="format-filter"]').val();
-        const dateSort = jQuery('select[name="date-sort"]').val();
-
+        page++; // Incrémente le numéro de page
+        
         // Envoie la requête AJAX pour charger plus de photos
         jQuery.ajax({
-            url: myAjax.ajax_url, // URL définie dans le localize_script de WordPress
-            type: 'GET',
+            url: myAjax.ajax_url, // URL définie dans le wp_localize_script
+            type: 'POST',  // Utilisation de POST
             data: {
-                action: 'load_more_photos', // Nom de l'action
-                page,
-                category,
-                format,
-                dateSort
+                action: 'load_more_photos', // Nom de l'action AJAX
+                page: page,  // Page actuelle
             },
             success: function (response) {
+                console.log(response); // Affiche la réponse dans la console pour voir ce qui est renvoyé
+        
                 if (response) {
-                    jQuery('.thumbnail-container').append(response); // Ajoute les nouvelles images
-                    console.log('test-if');
+                    jQuery('#thumbnail-container').append(response); // Ajoute les nouvelles images
+                    inputPage.val(page); // Met à jour la valeur de la page
+                    console.log('Photos ajoutées');
                 } else {
-                    jQuery('#load-more-posts').hide(); // Cache le bouton si aucune photo supplémentaire n'est disponible
-                    console.log('test-else');
+                    console.log('Aucune autre photo disponible');
+                    jQuery('#load-more-posts').hide(); // Cache le bouton si plus de photos ne sont disponibles
                 }
             },
             error: function () {
@@ -89,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
+    
+    
+
 
 
 jQuery(document).ready(function($) {
