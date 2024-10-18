@@ -1,4 +1,18 @@
-/* Global Styles */
+/* ========== CSS Mothatheme
+/* ========== I. Global Styles
+/* ========== II. Hero Section Styles
+/* ========== III. Filters Section Styles 
+/* ========== IV. Photo Catalog Section Styles 
+/* ========== V. Button "Load More" Styles 
+/* ========== VI. Contact Modal 
+/* ========== VII. Elementor Menu mobile
+/* ========== VIII. Responsive style (mobile)
+
+
+
+/* ========== I. Global Styles ========== */
+
+
 body {
     margin: 0;
     padding: 0;
@@ -55,7 +69,7 @@ p {
 }
 
 
-/* ========== Hero Section Styles ========== */
+/* ========== II. Hero Section Styles ========== */
 
 /* La section du Hero occupe toute la largeur et la hauteur de l'écran */
 .hero-section {
@@ -93,7 +107,9 @@ p {
     z-index: 10;
 }
 
-/* ========== Filters Section Styles ========== */
+
+
+/* ========== III. Filters Section Styles ========== */
 
 /* Section des filtres en disposition flex pour aligner les éléments */
 .filters-section {
@@ -176,7 +192,9 @@ p {
     /* Positionne le filtre à droite */
 }
 
-/* ========== Photo Catalog Section Styles ========== */
+
+
+/* ========== IV. Photo Catalog Section Styles ========== */
 
 /* Conteneur du catalogue photo avec une largeur fixe et centré */
 #photo-catalog {
@@ -283,7 +301,10 @@ p {
     color: white;
 }
 
-/* ========== Button "Load More" Styles ========== */
+
+
+
+/* ========== V. Button "Load More" Styles ========== */
 
 /* Conteneur pour le bouton Charger plus */
 .view-all-button {
@@ -330,7 +351,7 @@ p {
 
 
 
-/* ========== Formulaire ========== */
+/* ========== VI. Contact Modal ========== */
 
 
 /* Style général du conteneur du formulaire */
@@ -459,33 +480,51 @@ p {
     align-items: center;
 }
 
+
+/* ========== VII. Page single photo ========== */
+
+
+/* Styles généraux pour la page single photo */
+.main-content-post {
+    width: 100%;
+    max-width: 1200px;  /* Harmonisation des largeurs */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;  /* Centrage du contenu */
+}
+
 /* Conteneur principal pour les informations de la photo */
 .photo-single-container {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 1200px;
     margin-bottom: 40px;
 }
 
 .photo-single-container .left-half {
-    width: 45%;
+    width: 50%;
 }
-
-.photo-single-container .right-half {
-    width: 45%;
+.photo-single-container .right-half{
+    width: 50%;
 }
 
 .photo-single-container img {
     width: 100%;
     height: auto;
+    object-fit: cover;
 }
 
 /* Styles pour les détails de la photo (Moitié gauche) */
-
 .left-half {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
+
 .left-half h1 {
     font-size: 2rem;
     margin-bottom: 10px;
@@ -498,96 +537,113 @@ p {
     margin-bottom: 8px;
 }
 
+/* Border de séparation */
+
+.left-half {
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+}
+
+.secondary-container {
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
 /* Conteneur secondaire (contact et miniature) */
 .secondary-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 80%;
+    max-width: 1200px;
     margin-bottom: 40px;
 }
 
 .secondary-container p {
     font-size: 1.2rem;
     color: #555;
+    text-align: right;
 }
 
+/* Bouton de contact */
 .contact-button {
-    width: 263px;
+    width: 272px;
     height: 50px;
-    margin: 0 auto;
-    display: block;
-    padding: 8px 15px;
-    border-radius: 2px 0 0 0;
+    padding: 8px 15px 8px 15px;
+    gap: 10px;
+    border-radius: 2px 0px 0px 0px;
     border-style: hidden;
-    background-color: #D8D8D8;
-    opacity: 1;
+    opacity: 0px;
     cursor: pointer;
     text-align: center;
-    font-size: 12px;
+    transition: opacity 0.3s ease;
     font-family: 'Space Mono';
+    font-size: 12px;
     font-weight: 400;
-}
-
-.contact-button:hover {
-    background-color: #0056b3;
+    line-height: 17.77px;
 }
 
 /* Miniature et flèches de navigation */
 .miniature-photo {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
-.miniature-photo img.thumbnail {
+.miniature-photo img {
     width: 81px;
     height: 71px;
-    margin: 0 10px;
+    margin-bottom: 10px;
+}
+
+.navigation-arrows {
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+    gap: 15px;
 }
 
 .navigation-arrows img {
     width: 24px;
-    height: auto;
+    height: 10px;
     cursor: pointer;
 }
 
 /* Section des photos similaires */
 .related-photos {
-    margin-top: 40px;
-    text-align: center;
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
 }
 
-.related-photos h3 {
+.main-content-post h3 {
     font-size: 18px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-family: 'Space Mono';
+    font-weight: 400;
+    line-height: 26.66px;
+    letter-spacing: 0.1em;
+    text-align: left;
+}
+
+.related-photos .related-photo-list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .related-photos .related-photo-item {
-    display: inline-block;
-    margin: 0 15px;
+    width: calc(50% - 15px); /* Ajustement des photos pour qu'elles prennent toute la place disponible */
 }
 
 .related-photos .related-photo-item img {
-    width: 564px;
-    height: 495px;
+    width: 100%;
+    height: 80%;
     object-fit: cover;
-}
-
-.related-photos .related-photo-item h4 {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    color: #333;
-    font-weight: normal;
-}
-
-/* Navigation entre les posts */
-.post-navigation .meta-nav {
-    font-weight: bold;
-    color: #333;
-}
-
-.post-navigation .post-title {
-    font-size: 1.2rem;
-    color: #007BFF;
 }
 
 /* Ajustements pour la version mobile */
@@ -621,11 +677,82 @@ p {
 }
 
 
+/* ========== VII. Elementor Menu mobile ========== */
 
-/* ========== Responsive Styles ========== */
+/* Masque l'icône du menu burger sur les écrans plus grands que 768px */
+#elementor-menu-toggle {
+    display: none;
+}
+
+/* Affiche l'icône du menu burger sur les écrans de moins de 768px (mobile uniquement) */
+@media screen and (max-width: 768px) {
+    #elementor-menu-toggle {
+        display: block;
+        z-index: 999;
+        /* S'assurer qu'il est toujours au-dessus du contenu */
+    }
+}
+
+/* Cache le menu normal sur mobile */
+@media screen and (max-width: 768px) {
+    nav.elementor-nav-menu {
+        display: none;
+    }
+}
+
+/* Affiche le menu normal sur tablette et desktop */
+@media screen and (min-width: 769px) {
+    nav.elementor-nav-menu {
+        display: flex;
+        /* ou block selon ta configuration */
+    }
+
+    #elementor-menu-toggle {
+        display: none;
+        /* Masquer l'icône burger sur tablette et desktop */
+    }
+}
+
+/* Pour s'assurer que le menu prend toute la hauteur lors de l'activation en mobile */
+.elementor-nav-menu--dropdown {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    /* Couleur de fond du menu mobile */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 998;
+}
+
+/* Centrer les liens du menu en mobile */
+.elementor-nav-menu--dropdown ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.elementor-nav-menu--dropdown li {
+    margin-bottom: 20px;
+    font-size: 24px;
+    /* Taille des liens pour mobile */
+}
+
+/* Empêche le menu de déplacer la page en mobile */
+body.elementor-nav-menu--open {
+    overflow: hidden;
+}
+
+
+/* ========== VIII. Responsive Styles ========== */
 
 /* Appliquer les styles mobiles à partir de 768px de large */
 @media (max-width: 768px) {
+
     /* Styles H1 pour mobile */
     h1 {
         font-family: 'Space Mono', monospace;
@@ -639,10 +766,12 @@ p {
     /* Styles H2 pour mobile (réduire la taille si nécessaire) */
     h2 {
         font-family: 'Space Mono', monospace;
-        font-size: 36px; /* Ajustez si nécessaire */
+        font-size: 36px;
+        /* Ajustez si nécessaire */
         font-style: italic;
         font-weight: 400;
-        line-height: 40px; /* Ajustez si nécessaire */
+        line-height: 40px;
+        /* Ajustez si nécessaire */
         text-align: left;
     }
 
@@ -668,25 +797,31 @@ p {
     /* Ajustement du conteneur du catalogue photo */
     #photo-catalog {
         width: 317.66px;
-        margin: 0 auto; /* Centrer le catalogue */
+        margin: 0 auto;
+        /* Centrer le catalogue */
     }
 
     /* Conteneur des miniatures pour affichage d'une photo par ligne */
     .thumbnail-container-accueil {
-        flex-direction: column; /* Disposition en colonne */
-        align-items: center; /* Centrer les éléments */
+        flex-direction: column;
+        /* Disposition en colonne */
+        align-items: center;
+        /* Centrer les éléments */
     }
 
     /* Styles pour chaque miniature de photo */
     .custom-post-thumbnail {
-        width: 100%; /* Prendre toute la largeur du conteneur */
-        margin-top: 25px; /* Espace entre les photos */
+        width: 100%;
+        /* Prendre toute la largeur du conteneur */
+        margin-top: 25px;
+        /* Espace entre les photos */
         height: 278.8px;
     }
 
     /* Ajustement des miniatures */
     .custom-post-thumbnail img {
         width: 100%;
-        height: auto; /* Maintenir le ratio d'aspect */
+        height: auto;
+        /* Maintenir le ratio d'aspect */
     }
 }

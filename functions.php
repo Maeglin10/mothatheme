@@ -76,3 +76,11 @@ function load_more_photos() {
 
 add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
 add_action('wp_ajax_load_more_photos', 'load_more_photos');
+
+
+function enqueue_single_photo_script() {
+    if (is_singular('photo')) { // Vérifie si on est sur un post de type 'photo'
+        wp_enqueue_script('single-photo', get_template_directory_uri() . '/js/single-photo.js', array('jquery'), null, true);
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_single_photo_script');

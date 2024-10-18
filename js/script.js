@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
     cycleItems(); // Initialiser l'affichage
 
     jQuery('#load-more-posts').on('click', function () {
-        console.log('Chargement de plus de photos déclenché'); // Vérifie si le clic est bien détecté
+        console.log('Chargement de plus de photos déclenché');
         let inputPage = jQuery('input[name="page"]');
         let page = parseInt(inputPage.val());
         page++; // Incrémente le numéro de page
