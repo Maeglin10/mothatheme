@@ -49,7 +49,7 @@ if (have_posts()) :
             </div>
 
             <!-- Conteneur des photos similaires -->
-            <h3>Vous aimerez aussi</h3>
+            <h3 style=>Vous aimerez aussi</h3>
             <div class="related-photos">               
                 <?php
                 $related_photos = new WP_Query(array(

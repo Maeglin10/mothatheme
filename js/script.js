@@ -56,24 +56,26 @@ document.addEventListener('DOMContentLoaded', function () {
     jQuery('#load-more-posts').on('click', function () {
         console.log('Chargement de plus de photos déclenché');
         let inputPage = jQuery('input[name="page"]');
-        let page = parseInt(inputPage.val());
-        page++; // Incrémente le numéro de page
-        
-        // Envoie la requête AJAX pour charger plus de photos
+        let page = parseInt(inputPage.val()) + 1;
+        let category = jQuery('#filter-category').val();
+        let format = jQuery('#filter-format').val();
+        let dateOrder = jQuery('#filter-date').val();
+    
+        // Envoie la requête AJAX pour charger plus de photos filtrées
         jQuery.ajax({
-            url: myAjax.ajax_url, // URL définie dans le wp_localize_script
-            type: 'POST',  // Utilisation de POST
+            url: myAjax.ajax_url,
+            type: 'POST',
             data: {
-                action: 'load_more_photos', // Nom de l'action AJAX
-                page: page,  // Page actuelle
+                action: 'load_filtered_photos',
+                page: page,
+                category: category,
+                format: format,
+                date: dateOrder
             },
             success: function (response) {
-                console.log(response); // Affiche la réponse dans la console pour voir ce qui est renvoyé
-        
                 if (response) {
                     jQuery('#thumbnail-container').append(response); // Ajoute les nouvelles images
                     inputPage.val(page); // Met à jour la valeur de la page
-                    console.log('Photos ajoutées');
                 } else {
                     console.log('Aucune autre photo disponible');
                     jQuery('#load-more-posts').hide(); // Cache le bouton si plus de photos ne sont disponibles
@@ -86,9 +88,49 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     
     
+    
 
 
 
 jQuery(document).ready(function($) {
     console.log('jQuery est chargé');
 });
+
+jQuery(document).ready(function () {
+    // Gérer le changement de filtre
+    jQuery('#filters-form select').on('change', function () {
+        loadFilteredPhotos(); // Appel AJAX pour charger les photos avec filtres
+    });
+
+    function loadFilteredPhotos() {
+        let category = jQuery('#filter-category').val();
+        let format = jQuery('#filter-format').val();
+        let dateOrder = jQuery('#filter-date').val();
+        let inputPage = jQuery('input[name="page"]');
+        let page = parseInt(inputPage.val()) || 1;
+
+        jQuery.ajax({
+            url: myAjax.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'load_filtered_photos',
+                page: page,
+                category: category,
+                format: format,
+                date: dateOrder
+            },
+            success: function (response) {
+                if (response) {
+                    jQuery('#thumbnail-container').html(response); // Remplace le contenu avec les nouvelles photos filtrées
+                    inputPage.val(page); // Met à jour la valeur de la page
+                } else {
+                    console.log('Aucune photo trouvée');
+                }
+            },
+            error: function () {
+                alert('Erreur lors du chargement des photos filtrées.');
+            }
+        });
+    }
+});
+
