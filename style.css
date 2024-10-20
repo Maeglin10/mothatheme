@@ -121,18 +121,18 @@ p {
     margin-top: 30px;
     width: 100%;
     padding: 20px;
-    gap: 30px; /* Espace entre les filtres */
+    gap: 30px;
 }
 
 /* Style commun pour les filtres */
 .filter-item select {
-    width: 260px; /* Largeur fixe */
-    height: 42px; /* Hauteur fixe */
-    padding: 11px 18px; /* Espacement interne */
-    border-radius: 8px; /* Bord arrondi */
-    border: 1.3px solid #B8BBC2; /* Couleur de la bordure */
-    background-color: #FFFFFF; /* Couleur de fond */
-    font-size: 14px; /* Taille du texte */
+    width: 260px; 
+    height: 42px; 
+    padding: 11px 18px; 
+    border-radius: 8px; 
+    border: 1.3px solid #B8BBC2; 
+    background-color: #FFFFFF; 
+    font-size: 14px; 
     justify-content: space-between;
 }
 
@@ -142,20 +142,20 @@ p {
 
 /* Alignement des filtres */
 .filters-section .filter-item:first-child {
-    align-self: flex-start; /* Premier filtre à gauche */
+    align-self: flex-start; 
 }
 
 .filters-section .filter-item:nth-child(2) {
-    margin-left: 45px; /* Espace de 30px entre les deux premiers filtres */
+    margin-left: 45px; 
 }
 
 .filters-section .filter-item:last-child {
-    margin-left: 40%; /* Dernier filtre aligné à droite */
+    margin-left: 40%; 
 }
 
 /* Ajustement pour retirer l'opacité incorrecte */
 .filter-item select {
-    opacity: 1; /* Assurez-vous que l'opacité est bien visible */
+    opacity: 1; 
 }
 
 
@@ -166,34 +166,24 @@ p {
 /* Conteneur du catalogue photo avec une largeur fixe et centré */
 #photo-catalog {
     width: 1148px;
-    /* Largeur fixe pour le catalogue */
     margin: 0 auto;
-    /* Centrage horizontal */
     padding: 20px 0;
-    /* Espacement vertical */
 }
 
 /* Conteneur des miniatures avec flexbox pour aligner les photos */
 .thumbnail-container-accueil {
     display: flex;
     flex-wrap: wrap;
-    /* Pour permettre le retour à la ligne si nécessaire */
     justify-content: space-between;
-    /* Espace égal entre les miniatures */
     gap: 20px;
-    /* Espace entre les miniatures */
 }
 
 /* Styles pour chaque miniature de photo */
 .custom-post-thumbnail {
     width: 564px;
-    /* Largeur fixe de chaque miniature */
     height: 495px;
-    /* Hauteur fixe de chaque miniature */
     position: relative;
-    /* Nécessaire pour les overlays */
     overflow: hidden;
-    /* Masquer les débordements */
 }
 
 .thumbnail-wrapper {
@@ -207,7 +197,6 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* S'assure que l'image s'adapte sans distorsion */
 }
 
 /* Overlay de la miniature, visible au survol */
@@ -218,11 +207,8 @@ p {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
-    /* Fond semi-transparent */
     opacity: 0;
-    /* Masqué par défaut */
     transition: opacity 0.3s ease-in-out;
-    /* Transition douce */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -231,7 +217,6 @@ p {
 /* Affichage de l'overlay au survol de la miniature */
 .custom-post-thumbnail:hover .thumbnail-overlay {
     opacity: 1;
-    /* Visible au survol */
 }
 
 /* Contenu de l'overlay (référence et catégorie de la photo) */
@@ -240,9 +225,7 @@ p {
     width: 100%;
     height: 100%;
     color: #fff;
-    /* Texte blanc */
     font-size: 16px;
-    /* Taille du texte */
 }
 
 .icon-center {
@@ -254,16 +237,16 @@ p {
 
 .photo-reference {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 30px;
+    left: 30px;
     font-size: 14px;
     color: white;
 }
 
 .photo-category {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 30px;
+    right: 30px;
     font-size: 14px;
     color: white;
 }
@@ -277,43 +260,28 @@ p {
 .view-all-button {
     display: flex;
     justify-content: center;
-    /* Centrer le bouton horizontalement */
     margin-top: 40px;
-    /* Espacement entre les photos et le bouton */
 }
 
 /* Bouton "Charger plus" avec styles fixes */
 #load-more-posts {
     width: 272px;
-    /* Largeur fixe */
     height: 50px;
-    /* Hauteur fixe */
     padding: 8px 15px;
-    /* Espacement interne */
     gap: 10px;
-    /* Espace entre le contenu interne (si icône par ex.) */
     border-radius: 2px 0 0 0;
-    /* Bords arrondis uniquement en haut à gauche */
     border: none;
-    /* Retrait de la bordure */
     background-color: #D8D8D8;
-    /* Couleur de fond */
     color: #333;
-    /* Couleur du texte */
     font-size: 16px;
-    /* Taille du texte */
     cursor: pointer;
-    /* Curseur pointeur pour l'interactivité */
     opacity: 1;
-    /* Opacité pleine */
     transition: opacity 0.3s ease-in-out;
-    /* Transition pour l'effet de survol */
 }
 
 /* Effet de survol pour le bouton */
 #load-more-posts:hover {
     opacity: 0.8;
-    /* Réduction de l'opacité au survol */
 }
 
 
@@ -409,7 +377,7 @@ p {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 998; /* S'assurer que l'overlay est sous la modale */
+    z-index: 998;
 }
 
 .modal-content {
@@ -419,7 +387,7 @@ p {
     position: relative;
     z-index: 1000;
     width: 600px;
-    max-width: 90%; /* Pour s'adapter aux petits écrans */
+    max-width: 90%;
 }
 
 .modal-close {
@@ -445,12 +413,12 @@ p {
 /* Styles généraux pour la page single photo */
 .main-content-post {
     width: 100%;
-    max-width: 1200px;  /* Harmonisation des largeurs */
+    max-width: 1200px; 
     padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;  /* Centrage du contenu */
+    margin: 0 auto;
 }
 
 /* Conteneur principal pour les informations de la photo */
@@ -515,6 +483,7 @@ p {
     justify-content: space-between;
     align-items: center;
     width: 80%;
+    height: 118px;
     max-width: 1200px;
     margin-bottom: 40px;
 }
@@ -595,7 +564,7 @@ p {
 }
 
 .related-photos .related-photo-item {
-    width: calc(50% - 15px); /* Ajustement des photos pour qu'elles prennent toute la place disponible */
+    width: calc(50% - 15px);
 }
 
 .related-photos .related-photo-item img {
@@ -647,7 +616,6 @@ p {
     #elementor-menu-toggle {
         display: block;
         z-index: 999;
-        /* S'assurer qu'il est toujours au-dessus du contenu */
     }
 }
 
@@ -662,12 +630,10 @@ p {
 @media screen and (min-width: 769px) {
     nav.elementor-nav-menu {
         display: flex;
-        /* ou block selon ta configuration */
     }
 
     #elementor-menu-toggle {
         display: none;
-        /* Masquer l'icône burger sur tablette et desktop */
     }
 }
 
@@ -679,7 +645,6 @@ p {
     width: 100%;
     height: 100vh;
     background-color: #fff;
-    /* Couleur de fond du menu mobile */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -697,7 +662,6 @@ p {
 .elementor-nav-menu--dropdown li {
     margin-bottom: 20px;
     font-size: 24px;
-    /* Taille des liens pour mobile */
 }
 
 /* Empêche le menu de déplacer la page en mobile */
@@ -725,11 +689,9 @@ body.elementor-nav-menu--open {
     h2 {
         font-family: 'Space Mono', monospace;
         font-size: 36px;
-        /* Ajustez si nécessaire */
         font-style: italic;
         font-weight: 400;
         line-height: 40px;
-        /* Ajustez si nécessaire */
         text-align: left;
     }
 
@@ -756,23 +718,18 @@ body.elementor-nav-menu--open {
     #photo-catalog {
         width: 317.66px;
         margin: 0 auto;
-        /* Centrer le catalogue */
     }
 
     /* Conteneur des miniatures pour affichage d'une photo par ligne */
     .thumbnail-container-accueil {
         flex-direction: column;
-        /* Disposition en colonne */
         align-items: center;
-        /* Centrer les éléments */
     }
 
     /* Styles pour chaque miniature de photo */
     .custom-post-thumbnail {
         width: 100%;
-        /* Prendre toute la largeur du conteneur */
         margin-top: 25px;
-        /* Espace entre les photos */
         height: 278.8px;
     }
 
@@ -780,6 +737,5 @@ body.elementor-nav-menu--open {
     .custom-post-thumbnail img {
         width: 100%;
         height: auto;
-        /* Maintenir le ratio d'aspect */
     }
 }
