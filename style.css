@@ -111,86 +111,53 @@ p {
 
 /* ========== III. Filters Section Styles ========== */
 
-/* Section des filtres en disposition flex pour aligner les éléments */
+/* Section des filtres */
 .filters-section {
     display: flex;
     justify-content: space-between;
-    /* Catégories à gauche, Trier à droite */
     align-items: center;
     max-width: 1148px;
-    /* Même largeur que le catalogue photo */
-    margin: 20px 0;
+    margin: auto;
+    margin-top: 30px;
     width: 100%;
-    padding: 0 20px;
-    /* Ajustement pour les bords */
+    padding: 20px;
+    gap: 30px; /* Espace entre les filtres */
 }
 
-/* Style commun pour tous les éléments de filtre */
+/* Style commun pour les filtres */
 .filter-item select {
-    width: 260px;
-    /* Largeur fixe */
-    height: 42px;
-    /* Hauteur fixe */
-    padding: 11px 18px;
-    /* Espacement interne */
-    gap: 0;
-    /* Pas de gap supplémentaire */
-    border-radius: 8px 0 0 0;
-    /* Bords arrondis en haut à gauche */
-    border-width: 1.3px 0 0 0;
-    /* Bordure supérieure fine */
-    border-color: #ccc;
-    /* Couleur de la bordure */
+    width: 260px; /* Largeur fixe */
+    height: 42px; /* Hauteur fixe */
+    padding: 11px 18px; /* Espacement interne */
+    border-radius: 8px; /* Bord arrondi */
+    border: 1.3px solid #B8BBC2; /* Couleur de la bordure */
+    background-color: #FFFFFF; /* Couleur de fond */
+    font-size: 14px; /* Taille du texte */
     justify-content: space-between;
-    /* Alignement du texte dans les options */
-    opacity: 1;
-    /* Rendre visible (contrairement à 0) */
-    background-color: #f9f9f9;
-    /* Fond gris clair */
-    font-size: 14px;
-    /* Taille du texte */
 }
 
-/* Filtre pour la catégorie et le format aligné à gauche */
-.filters-section .filter-item:nth-child(1),
+#filters-form {
+    display: flex;
+}
+
+/* Alignement des filtres */
+.filters-section .filter-item:first-child {
+    align-self: flex-start; /* Premier filtre à gauche */
+}
+
 .filters-section .filter-item:nth-child(2) {
-    align-self: flex-start;
+    margin-left: 45px; /* Espace de 30px entre les deux premiers filtres */
 }
 
-/* Filtre 'Trier par' aligné à droite */
-.filters-section .filter-item:nth-child(3) {
-    align-self: flex-end;
+.filters-section .filter-item:last-child {
+    margin-left: 40%; /* Dernier filtre aligné à droite */
 }
 
-/* Applique seulement ces marges supplémentaires aux filtres si besoin */
-.filter-item:not(:last-child) {
-    margin-right: 30px;
-    /* Espace entre "Catégorie" et "Format" */
+/* Ajustement pour retirer l'opacité incorrecte */
+.filter-item select {
+    opacity: 1; /* Assurez-vous que l'opacité est bien visible */
 }
 
-/* Pour le dernier filtre "Trier par" */
-#filter-date {
-    margin-left: auto;
-    /* Positionner à droite */
-}
-
-/* Style spécifique pour le filtre "Catégorie" */
-#filter-category {
-    margin-right: 30px;
-    /* Espace entre "Catégorie" et "Format" */
-}
-
-/* Style spécifique pour le filtre "Format" */
-#filter-format {
-    margin-right: auto;
-    /* Pousse le filtre "Trier par" à droite */
-}
-
-/* Style pour le filtre "Trier par" */
-#filter-date {
-    margin-left: auto;
-    /* Positionne le filtre à droite */
-}
 
 
 
@@ -353,7 +320,6 @@ p {
 
 /* ========== VI. Contact Modal ========== */
 
-
 /* Style général du conteneur du formulaire */
 .custom-form {
     display: flex;
@@ -375,21 +341,14 @@ p {
 /* Style commun pour les champs texte et email */
 .custom-input {
     width: 100%;
-    /* Champ prend toute la largeur du container */
     max-width: 263px;
-    /* Largeur maximale des champs */
     height: 40px;
-    /* Espacement entre les champs */
     border-radius: 8px;
-    /* Arrondir tous les coins */
     border: 1px solid #ccc;
-    /* Bordure visible */
     padding: 10px;
     background-color: #f9f9f9;
     text-align: center;
-    /* Centrer le texte */
     box-sizing: border-box;
-    /* Inclure le padding dans la largeur totale */
 }
 
 /* Champ message avec hauteur plus grande */
@@ -399,13 +358,10 @@ p {
     height: 210px;
     margin-bottom: 20px;
     border-radius: 8px;
-    /* Arrondir tous les coins */
     border: 1px solid #ccc;
-    /* Bordure visible */
     padding: 10px;
     background-color: #f9f9f9;
     text-align: center;
-    /* Centrer le texte */
     box-sizing: border-box;
 }
 
@@ -419,7 +375,6 @@ p {
     border-radius: 2px 0 0 0;
     border-style: hidden;
     background-color: #D8D8D8;
-    opacity: 1;
     cursor: pointer;
     text-align: center;
     font-size: 12px;
@@ -434,7 +389,7 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 95%;
+    height: 100%;
     z-index: 999;
     justify-content: center;
     align-items: center;
@@ -452,8 +407,9 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    height: 200%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998; /* S'assurer que l'overlay est sous la modale */
 }
 
 .modal-content {
@@ -463,6 +419,7 @@ p {
     position: relative;
     z-index: 1000;
     width: 600px;
+    max-width: 90%; /* Pour s'adapter aux petits écrans */
 }
 
 .modal-close {
@@ -479,6 +436,7 @@ p {
     flex-direction: column;
     align-items: center;
 }
+
 
 
 /* ========== VII. Page single photo ========== */
