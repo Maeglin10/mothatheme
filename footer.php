@@ -4,18 +4,18 @@
  */
 
 ?>
-    <?php echo do_shortcode('[hfe_template id="63"]'); // Footer Elementor ?>
+<?php echo do_shortcode('[hfe_template id="63"]'); // Footer Elementor ?>
 
-    <!-- Inclusion de la modale de contact -->
-    <?php get_template_part('template-part/contact-modal'); ?>
+<!-- Inclusion de la modale de contact -->
+<?php get_template_part('template-part/contact-modal'); ?>
 
 
-    <!-- Inclusion de la deuxième modale de contact -->
+<!-- Inclusion de la deuxième modale de contact -->
 <?php get_template_part('template-part/single-modal'); ?>
 
 
-    <!-- Inclusion de la lightbox -->
-    <div class="lightbox">
+<!-- Inclusion de la lightbox -->
+<div class="lightbox">
     <div class="lightbox__overlay"></div>
     <img class="lightbox__image" src="" alt="Image agrandie">
     <div class="lightbox__controls">
@@ -30,7 +30,7 @@
 </div>
 
 
-    <?php wp_footer(); ?>
+<?php wp_footer(); ?>
 </body>
-</html>
 
+</html>
