@@ -162,15 +162,14 @@ p {
 
 
 /* ========== IV. Photo Catalog Section Styles ========== */
-
-/* Conteneur du catalogue photo avec une largeur fixe et centré */
+/* Conteneur du catalogue photo */
 #photo-catalog {
     width: 1148px;
     margin: 0 auto;
     padding: 20px 0;
 }
 
-/* Conteneur des miniatures avec flexbox pour aligner les photos */
+/* Conteneur des miniatures */
 .thumbnail-container-accueil {
     display: flex;
     flex-wrap: wrap;
@@ -178,7 +177,7 @@ p {
     gap: 20px;
 }
 
-/* Styles pour chaque miniature de photo */
+/* Styles pour chaque miniature */
 .custom-post-thumbnail {
     width: 564px;
     height: 495px;
@@ -186,20 +185,20 @@ p {
     overflow: hidden;
 }
 
+/* Miniatures */
 .thumbnail-wrapper {
     width: 100%;
     height: 100%;
     position: relative;
 }
 
-/* Les images miniatures remplissent leur conteneur */
 .custom-post-thumbnail img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* Overlay de la miniature, visible au survol */
+/* Overlay */
 .thumbnail-overlay {
     position: absolute;
     top: 0;
@@ -214,12 +213,10 @@ p {
     align-items: center;
 }
 
-/* Affichage de l'overlay au survol de la miniature */
 .custom-post-thumbnail:hover .thumbnail-overlay {
     opacity: 1;
 }
 
-/* Contenu de l'overlay (référence et catégorie de la photo) */
 .overlay-content {
     position: relative;
     width: 100%;
@@ -228,6 +225,7 @@ p {
     font-size: 16px;
 }
 
+/* Icônes */
 .icon-center {
     position: absolute;
     top: 50%;
@@ -235,23 +233,126 @@ p {
     transform: translate(-50%, -50%);
 }
 
-.photo-reference {
+.photo-reference, .photo-category {
     position: absolute;
-    bottom: 30px;
-    left: 30px;
     font-size: 14px;
     color: white;
+}
+
+.photo-reference {
+    bottom: 30px;
+    left: 30px;
 }
 
 .photo-category {
-    position: absolute;
     bottom: 30px;
     right: 30px;
-    font-size: 14px;
-    color: white;
 }
 
+/* Icône fullscreen */
+.icon-fullscreen {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
 
+.custom-post-thumbnail:hover .icon-fullscreen {
+    display: block;
+}
+
+/* Styles de la lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.lightbox__image {
+    max-width: 80%;
+    max-height: 80%;
+    z-index: 1010; 
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Contrôles de la lightbox */
+.lightbox__controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.lightbox__prev, .lightbox__next {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px; /* Ajout d'espace autour des boutons */
+    cursor: pointer;
+}
+
+.lightbox__prev:hover, .lightbox__next:hover {
+    color: #ffcc00; /* Changement de couleur au survol */
+}
+
+.lightbox__close {
+    position: absolute;
+    right: 10%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Info de la lightbox */
+.lightbox__info {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 25%;
+    color: white;
+    font-family: "Space Mono", monospace;
+}
+
+.lightbox__reference {
+    color: white;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.lightbox__category {
+    color: white;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
 
 
 /* ========== V. Button "Load More" Styles ========== */
@@ -602,7 +703,6 @@ p {
         height: auto;
     }
 }
-
 
 /* ========== VII. Elementor Menu mobile ========== */
 
