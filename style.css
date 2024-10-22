@@ -507,8 +507,98 @@ p {
 }
 
 
+/* ========== VII. Contact Modal (Single) ========== */
 
-/* ========== VII. Page single photo ========== */
+/* Styles pour la deuxième modale */
+
+#contactModal {
+    display: none; /* Cacher la modale par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Overlay semi-transparent */
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    width: 50%;
+    background-color: white;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-single {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Désactive les interactions tant que la modale est fermée */
+}
+
+.modal-single.show {
+    opacity: 1;
+    pointer-events: auto; /* Permet les interactions lorsque la modale est visible */
+}
+
+.modal-content-single {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1000;
+    width: 600px;
+    max-width: 90%; /* Limite la largeur de la modale sur les petits écrans */
+    margin: 0 auto; /* Centrer la modale sur l'axe horizontal */
+}
+
+
+.modal-overlay-single {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+.modal-content-single {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1000;
+    width: 600px;
+    max-width: 90%;
+}
+
+.modal-close-single {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+
+/* ========== VIII. Page single photo ========== */
 
 
 /* Styles généraux pour la page single photo */
@@ -596,7 +686,7 @@ p {
 }
 
 /* Bouton de contact */
-.contact-button {
+.open-contact-modal-single {
     width: 272px;
     height: 50px;
     padding: 8px 15px 8px 15px;

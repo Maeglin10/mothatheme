@@ -24,8 +24,11 @@ if (have_posts()) :
 
             <!-- Conteneur secondaire -->
             <div class="secondary-container">
-                <p>Cette photo vous intéresse ?</p>
-                <button id="contactModal" class="contact-button">CONTACT</button>
+    <p>Cette photo vous intéresse ?</p>
+    <!-- Ajustement de l'ID et des classes pour correspondre à la nouvelle modale -->
+    <button class="open-contact-modal-single">CONTACT</button>
+
+
                 <div class="miniature-photo">
                     <?php
                     // Affichage d'une photo aléatoire en taille 'small'

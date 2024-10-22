@@ -9,6 +9,11 @@
     <!-- Inclusion de la modale de contact -->
     <?php get_template_part('template-part/contact-modal'); ?>
 
+
+    <!-- Inclusion de la deuxième modale de contact -->
+<?php get_template_part('template-part/single-modal'); ?>
+
+
     <!-- Inclusion de la lightbox -->
     <div class="lightbox">
     <div class="lightbox__overlay"></div>
