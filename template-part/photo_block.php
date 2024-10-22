@@ -47,8 +47,6 @@
             </div>
         <?php endif; ?>
     </a>
-
-    <!-- Ajout de l'icône fullscreen en dehors du lien -->
     <div class="icon-fullscreen">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-fullscreen.png" alt="Fullscreen">
     </div>
