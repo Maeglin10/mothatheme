@@ -19,15 +19,27 @@
     <div class="lightbox__overlay"></div>
     <img class="lightbox__image" src="" alt="Image agrandie">
     <div class="lightbox__controls">
-        <button class="lightbox__prev">Précédent</button>
-        <button class="lightbox__next">Suivant</button>
-        <button class="lightbox__close">Fermer</button>
+        <!-- Bouton Précédent avec image et texte -->
+        <button class="lightbox__prev">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-left.png" alt="Précédent" class="arrow-icon">
+            Précédent
+        </button>
+        
+        <!-- Bouton Suivant avec image et texte -->
+        <button class="lightbox__next">
+            Suivant
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-right.png" alt="Suivant" class="arrow-icon">
+        </button>
+
+        <!-- Bouton Fermer avec une icône croix -->
+        <button class="lightbox__close">&times;</button> <!-- Utilisation de l'entité HTML pour une croix -->
     </div>
     <div class="lightbox__info">
         <span class="lightbox__reference"></span>
         <span class="lightbox__category"></span>
     </div>
 </div>
+
 
 
 <?php wp_footer(); ?>

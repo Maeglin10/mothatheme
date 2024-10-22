@@ -14,7 +14,7 @@ if (have_posts()) :
                         <p>Référence : <?php echo esc_html(get_field('reference')); ?></p>
                         <p>Type : <?php echo esc_html(get_field('type')); ?></p>
                         <p>Catégorie : <?php echo esc_html(get_the_terms(get_the_ID(), 'categorie')[0]->name); ?></p>
-                        <p>Année : <?php echo esc_html(get_field('annee')); ?></p>
+                        <p>Année : <?php echo get_the_date('Y'); ?></p>
                     </div>
                     <div class="right-half">
                         <?php the_post_thumbnail('large'); ?>
@@ -24,36 +24,45 @@ if (have_posts()) :
 
             <!-- Conteneur secondaire -->
             <div class="secondary-container">
-    <p>Cette photo vous intéresse ?</p>
-    <!-- Ajustement de l'ID et des classes pour correspondre à la nouvelle modale -->
-    <button class="open-contact-modal-single">CONTACT</button>
-
+                <p>Cette photo vous intéresse ?</p>
+                <!-- Ajustement de l'ID et des classes pour correspondre à la nouvelle modale -->
+                <button class="open-contact-modal-single">CONTACT</button>
 
                 <div class="miniature-photo">
-                    <?php
-                    // Affichage d'une photo aléatoire en taille 'small'
-                    $random_photo = new WP_Query(array(
-                        'post_type' => 'photo',
-                        'posts_per_page' => 1,
-                        'orderby' => 'rand',
-                    ));
-                    if ($random_photo->have_posts()) :
-                        while ($random_photo->have_posts()) : $random_photo->the_post(); 
-                            the_post_thumbnail('small');
-                        endwhile;
-                        wp_reset_postdata();
-                    endif;
-                    ?>
-                    <div class="navigation-arrows">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-left.png" alt="Flèche gauche">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-right.png" alt="Flèche droite">
-                    </div>
-                </div>
-            </div>
+    <!-- Affichage de la miniature de la photo actuelle -->
+    <?php the_post_thumbnail('small'); ?>
 
-            <!-- Conteneur des photos similaires -->
-            <h3 style=>Vous aimerez aussi</h3>
-            <div class="related-photos">               
+    <div class="navigation-arrows">
+        <!-- Lien pour la photo précédente -->
+        <?php 
+        $prev_post = get_previous_post(); 
+        if (!empty($prev_post)) : ?>
+            <a href="<?php echo get_permalink($prev_post->ID); ?>" class="prev-photo-link">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-left.png" alt="Flèche gauche">
+            </a>
+        <?php endif; ?>
+
+        <!-- Lien pour la photo suivante -->
+        <?php 
+        $next_post = get_next_post(); 
+        if (!empty($next_post)) : ?>
+            <a href="<?php echo get_permalink($next_post->ID); ?>" class="next-photo-link">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-right.png" alt="Flèche droite">
+            </a>
+        <?php endif; ?>
+    </div>
+</div>
+
+            </div>
+        </main>
+        <?php
+    endwhile;
+endif;
+?>
+
+<!-- Conteneur des photos similaires -->
+<h3>Vous aimerez aussi</h3>
+<div class="related-photos">
     <?php
     // Query pour récupérer les photos similaires
     $related_photos = new WP_Query(array(
@@ -121,10 +130,6 @@ if (have_posts()) :
     ?>
 </div>
 
-        </main>
-    <?php
-    endwhile;
-endif;
-
+<?php
 get_footer();
 ?>

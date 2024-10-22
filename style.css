@@ -146,6 +146,7 @@ p {
 
 #filters-form {
     display: flex;
+    flex-wrap: wrap;
 }
 
 /* Alignement des filtres */
@@ -288,6 +289,7 @@ p {
 
 
 /* Styles de la lightbox */
+
 .lightbox {
     position: fixed;
     top: 0;
@@ -320,23 +322,26 @@ p {
 }
 
 /* Contrôles de la lightbox */
+
+
 .lightbox__controls {
     position: absolute;
-    top: 50%;
-    width: 100%;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    z-index: 10;
+    justify-content: space-between; 
+    width: calc(100% - 10rem);
 }
 
-.lightbox__prev, .lightbox__next {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    padding: 10px; /* Ajout d'espace autour des boutons */
+.lightbox__prev,
+.lightbox__next {
     cursor: pointer;
+    background: none;
+    color: white;
+    font-family: 'Space Mono';
+    font-size: 16px;
+    border: hidden;
 }
 
 .lightbox__prev:hover, .lightbox__next:hover {
@@ -353,6 +358,29 @@ p {
     cursor: pointer;
 }
 
+/* Styles pour les icônes de flèches Précédent et Suivant */
+.arrow-icon {
+    width: 25px;
+    height: auto;
+    margin: 0 5px;
+}
+
+/* Style pour la croix de fermeture */
+
+
+.lightbox__close {
+    position: fixed;
+    top: -1200%;
+    right: 20px; 
+    background: none;
+    border: none; 
+    color: white; 
+    font-size: 32px; 
+    cursor: pointer; 
+    z-index: 1100; 
+}
+
+
 /* Info de la lightbox */
 .lightbox__info {
     position: absolute;
@@ -363,6 +391,7 @@ p {
     gap: 25%;
     color: white;
     font-family: "Space Mono", monospace;
+    padding-bottom: 30px;
 }
 
 .lightbox__reference {
@@ -436,7 +465,6 @@ p {
     top: 18px;
     left: -141.49px;
     gap: 0px;
-    opacity: 0px;
 }
 
 /* Style commun pour les champs texte et email */
@@ -749,6 +777,10 @@ p {
     cursor: pointer;
 }
 
+.navigation-arrows a:hover img {
+    opacity: 0.7; /* Ajout d'un effet de transparence au survol */
+}
+
 /* Section des photos similaires */
 .related-photos {
     display: flex;
@@ -819,72 +851,6 @@ p {
 /* ====================================================== */
 /* ========== X. Elementor Menu mobile ========== */
 /* ====================================================== */
-
-
-
-
-/* Masque l'icône du menu burger sur les écrans plus grands que 768px */
-#elementor-menu-toggle {
-    display: none;
-}
-
-/* Affiche l'icône du menu burger sur les écrans de moins de 768px (mobile uniquement) */
-@media screen and (max-width: 768px) {
-    #elementor-menu-toggle {
-        display: block;
-        z-index: 999;
-    }
-}
-
-/* Cache le menu normal sur mobile */
-@media screen and (max-width: 768px) {
-    nav.elementor-nav-menu {
-        display: none;
-    }
-}
-
-/* Affiche le menu normal sur tablette et desktop */
-@media screen and (min-width: 769px) {
-    nav.elementor-nav-menu {
-        display: flex;
-    }
-
-    #elementor-menu-toggle {
-        display: none;
-    }
-}
-
-/* Pour s'assurer que le menu prend toute la hauteur lors de l'activation en mobile */
-.elementor-nav-menu--dropdown {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 998;
-}
-
-/* Centrer les liens du menu en mobile */
-.elementor-nav-menu--dropdown ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.elementor-nav-menu--dropdown li {
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-/* Empêche le menu de déplacer la page en mobile */
-body.elementor-nav-menu--open {
-    overflow: hidden;
-}
 
 
 
