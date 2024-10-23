@@ -61,7 +61,7 @@ endif;
 ?>
 
 <!-- Conteneur des photos similaires -->
-<h3>Vous aimerez aussi</h3>
+<h3 class="third-container-title">Vous aimerez aussi</h3>
 <div class="related-photos">
     <?php
     // Query pour récupérer les photos similaires

@@ -8,8 +8,7 @@
 /* ========== VII. Contact Modal 
 /* ========== VIII. Contact Modal (Single.php)
 /* ========== IX. Page Single photo 
-/* ========== X. Elementor Menu mobile
-/* ========== XI. Responsive style (mobile)
+/* ========== X. Responsive style (mobile)
 
 
 /* ====================================================== */
@@ -332,6 +331,7 @@ p {
     display: flex;
     justify-content: space-between; 
     width: calc(100% - 10rem);
+    color: white;
 }
 
 .lightbox__prev,
@@ -346,6 +346,14 @@ p {
 
 .lightbox__prev:hover, .lightbox__next:hover {
     color: #ffcc00; /* Changement de couleur au survol */
+}
+
+.lightbox__prev .lightbox__nav-link,
+.lightbox__next .lightbox__nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
 }
 
 .lightbox__close {
@@ -549,6 +557,8 @@ p {
     z-index: 1000;
     width: 600px;
     max-width: 90%;
+    height: 80vh;
+    overflow-y: auto; 
 }
 
 .modal-close {
@@ -613,6 +623,8 @@ p {
     width: 600px;
     max-width: 90%; /* Limite la largeur de la modale sur les petits écrans */
     margin: 0 auto; /* Centrer la modale sur l'axe horizontal */
+    height: 80vh; /* 80% de la hauteur de l'écran */
+    overflow-y: auto; /* Pour permettre le défilement si nécessaire */
 }
 
 
@@ -691,15 +703,21 @@ p {
 }
 
 .left-half h1 {
-    font-size: 2rem;
+    font-family: 'Space Mono';
+    font-size: 55px;
+    font-weight: 400;
     margin-bottom: 10px;
     text-transform: uppercase;
+    align-content: flex-start;
 }
 
 .left-half p {
-    font-size: 1rem;
+    font-family: 'Space Mono';
+    font-size: 14px;
+    font-weight: 400;
     color: #555;
     margin-bottom: 8px;
+    text-transform: uppercase;
 }
 
 /* Border de séparation */
@@ -790,14 +808,15 @@ p {
     gap: 20px;
 }
 
-.main-content-post h3 {
+.third-container-title {
     font-size: 18px;
     margin-bottom: 20px;
     font-family: 'Space Mono';
     font-weight: 400;
     line-height: 26.66px;
     letter-spacing: 0.1em;
-    text-align: left;
+    text-transform: uppercase;
+    margin-left: 10%;
 }
 
 .related-photos .related-photo-list {
@@ -849,13 +868,7 @@ p {
 
 
 /* ====================================================== */
-/* ========== X. Elementor Menu mobile ========== */
-/* ====================================================== */
-
-
-
-/* ====================================================== */
-/* ========== XI. Responsive Styles ========== */
+/* ========== X. Responsive Styles ========== */
 /* ====================================================== */
 
 
@@ -926,5 +939,249 @@ p {
     .custom-post-thumbnail img {
         width: 100%;
         height: auto;
+    }
+}
+
+/* ====================================================== */
+/* ========== X. Responsive style (mobile) ========== */
+/* ====================================================== */
+
+@media (max-width: 768px) {
+
+    /* ========== I. Global Styles ========== */
+
+    h1 {
+        font-size: 48px;
+        line-height: 72px;
+    }
+
+    h2 {
+        font-size: 36px;
+        line-height: 42px;
+    }
+
+    h3 {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    p, .photo-description {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    /* ========== II. Hero Section Styles ========== */
+
+    .hero-section {
+        height: 70vh; /* Réduction de la hauteur sur mobile */
+    }
+
+    .hero-background img {
+        width: 90%; /* Ajuste la taille de l'image */
+    }
+
+    /* ========== III. Filters Section Styles ========== */
+
+    .filters-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 90%;
+    }
+    .filters-section .filter-item {
+        margin-left: 0;
+    }
+
+    #filters-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filters-section .filter-item:nth-child(2) {
+        margin-left: 0px;
+    }
+
+    .filters-section .filter-item:last-child {
+        margin-left: 0px;
+    }
+
+
+
+    /* ========== IV. Photo Catalog Section Styles ========== */
+
+    #photo-catalog {
+        width: 100%; /* Occupe toute la largeur de l'écran */
+        padding: 10px 0;
+    }
+
+    .thumbnail-container-accueil {
+        flex-direction: column; /* Place les miniatures en colonne */
+        gap: 10px; /* Réduit l'espacement entre les éléments */
+    }
+
+    .custom-post-thumbnail {
+        width: 100%; /* Les miniatures prennent 100% de la largeur */
+        height: auto; /* Ajuste la hauteur proportionnellement */
+    }
+
+    .thumbnail-overlay {
+        opacity: 1; /* Garde l'overlay visible par défaut sur mobile */
+    }
+
+    /* ========== V. Lightbox ========== */
+
+    .lightbox__image {
+        max-width: 90%; /* Réduction de la taille de l'image en lightbox */
+        max-height: 90%;
+    }
+
+    .lightbox__controls {
+        width: 100%; /* Ajuste les contrôles à la taille de l'écran */
+    }
+
+    .lightbox__next {
+        margin-right: 5%;
+    }
+
+    /* ========== VI. Button "Load More" Styles ========== */
+
+    #load-more-posts {
+        width: 100%; /* Le bouton prend toute la largeur disponible */
+        font-size: 14px;
+        height: 45px;
+    }
+
+    /* ========== VII. Contact Modal ========== */
+
+    .custom-input, .custom-textarea {
+        width: 100%; /* Les champs prennent toute la largeur */
+        max-width: none; /* Enlève la largeur max fixe */
+    }
+
+    .custom-submit {
+        width: 100%; /* Bouton 100% largeur */
+    }
+
+    /* ========== VIII. Contact Modal (Single.php) ========== */
+
+    .form-header-image {
+        width: 100%; /* Image prend toute la largeur */
+        height: auto; /* Ajuste la hauteur de l'image */
+    }
+
+    /* ========== IX. Page Single photo ========== */
+
+    .single-photo-container {
+        flex-direction: column; /* Les éléments s'empilent en colonne sur mobile */
+    }
+
+    .single-photo-container .left,
+    .single-photo-container .right {
+        width: 100%; /* Prend toute la largeur disponible */
+        margin-bottom: 20px;
+    }
+
+    .single-photo-container .right img {
+        width: 100%; /* L'image de la photo s'adapte à l'écran */
+        height: auto;
+    }
+
+    .related-photos {
+        flex-direction: column; /* Les photos similaires s'empilent */
+        gap: 10px;
+    }
+
+    .related-photo {
+        width: 100%; /* Chaque photo prend 100% de la largeur */
+        height: auto; /* Hauteur auto pour maintenir les proportions */
+    }
+
+    .main-content-post {
+        width: 80%;
+    }
+
+    #load-more-posts {
+        width: 30%;
+    }
+
+    #photo-catalog {
+        width: 90%;
+    }
+
+    .photo-single-container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .photo-single-container .left-half,
+    .photo-single-container .right-half {
+        width: 100%;
+        text-align: center;
+    }
+
+    .miniature-photo {
+        display: none;
+    }
+
+    .secondary-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%; /* S'assurer que le conteneur prend toute la largeur disponible */
+        padding-bottom: 50px;
+    }
+
+    .third-container-title {
+        display: flex;
+        justify-content: center;
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .left-half p {
+        font-size: 14px;
+        line-height: 21px;
+    }
+
+    .related-photos {
+        margin-bottom: 30px;
+    }
+
+    .lightbox__info {
+        padding-bottom: 0px;
+    }
+
+}
+
+/* Responsive pour les écrans de 1024px */
+@media only screen and (max-width: 1024px) {
+    #filters-form{
+        flex-wrap: nowrap;
+    }
+
+    .filters-section {
+        padding: 0px;
+
+    }
+    
+    .filters-section .filter-item:last-child {
+    margin-left: 24%;
+}
+
+    #photo-catalog {
+        max-width: 1148px;
+        width: 100%;
+    }
+
+    .custom-post-thumbnail {
+        max-width: 564px;
+        width: 48%;
+    }
+}
+
+/* Responsive pour les écrans de 1440px */
+@media only screen and (max-width: 1440px) {
+    #filters-form {
+        flex-wrap: nowrap;
     }
 }

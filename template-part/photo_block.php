@@ -59,7 +59,6 @@
     <?php endif; ?>
 </div>
 
-
         <!-- Bouton pour charger plus de posts -->
         <div class="view-all-button">
             <button id="load-more-posts">Charger plus</button>

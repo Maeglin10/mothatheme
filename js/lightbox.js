@@ -26,7 +26,4 @@ jQuery(document).ready(function($) {
   $('.lightbox__close, .lightbox__overlay').on('click', function() {
       $('.lightbox').fadeOut();
   });
-
-  // Navigation (fonctionnalité de base pour précédent/suivant)
-  // À compléter en fonction des besoins pour changer d'image dans la lightbox.
 });
