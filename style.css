@@ -133,13 +133,13 @@ p {
 
 /* Style commun pour les filtres */
 .filter-item select {
-    width: 260px; 
-    height: 42px; 
-    padding: 11px 18px; 
-    border-radius: 8px; 
-    border: 1.3px solid #B8BBC2; 
-    background-color: #FFFFFF; 
-    font-size: 14px; 
+    width: 260px;
+    height: 42px;
+    padding: 11px 18px;
+    border-radius: 8px;
+    border: 1.3px solid #B8BBC2;
+    background-color: #FFFFFF;
+    font-size: 14px;
     justify-content: space-between;
 }
 
@@ -150,20 +150,20 @@ p {
 
 /* Alignement des filtres */
 .filters-section .filter-item:first-child {
-    align-self: flex-start; 
+    align-self: flex-start;
 }
 
 .filters-section .filter-item:nth-child(2) {
-    margin-left: 45px; 
+    margin-left: 45px;
 }
 
 .filters-section .filter-item:last-child {
-    margin-left: 40%; 
+    margin-left: 40%;
 }
 
 /* Ajustement pour retirer l'opacité incorrecte */
 .filter-item select {
-    opacity: 1; 
+    opacity: 1;
 }
 
 
@@ -246,7 +246,8 @@ p {
     transform: translate(-50%, -50%);
 }
 
-.photo-reference, .photo-category {
+.photo-reference,
+.photo-category {
     position: absolute;
     font-size: 14px;
     color: white;
@@ -313,7 +314,7 @@ p {
 .lightbox__image {
     max-width: 80%;
     max-height: 80%;
-    z-index: 1010; 
+    z-index: 1010;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8);
     border-radius: 5px;
     margin: 0 auto;
@@ -325,11 +326,11 @@ p {
 
 .lightbox__controls {
     position: absolute;
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     width: calc(100% - 10rem);
     color: white;
 }
@@ -344,8 +345,10 @@ p {
     border: hidden;
 }
 
-.lightbox__prev:hover, .lightbox__next:hover {
-    color: #ffcc00; /* Changement de couleur au survol */
+.lightbox__prev:hover,
+.lightbox__next:hover {
+    color: #ffcc00;
+    /* Changement de couleur au survol */
 }
 
 .lightbox__prev .lightbox__nav-link,
@@ -379,13 +382,13 @@ p {
 .lightbox__close {
     position: fixed;
     top: -1200%;
-    right: 20px; 
+    right: 20px;
     background: none;
-    border: none; 
-    color: white; 
-    font-size: 32px; 
-    cursor: pointer; 
-    z-index: 1100; 
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 1100;
 }
 
 
@@ -558,7 +561,7 @@ p {
     width: 600px;
     max-width: 90%;
     height: 80vh;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
 
 .modal-close {
@@ -606,12 +609,14 @@ p {
     height: 100%;
     z-index: 999;
     transition: opacity 0.3s ease;
-    pointer-events: none; /* Désactive les interactions tant que la modale est fermée */
+    pointer-events: none;
+    /* Désactive les interactions tant que la modale est fermée */
 }
 
 .modal-single.show {
     opacity: 1;
-    pointer-events: auto; /* Permet les interactions lorsque la modale est visible */
+    pointer-events: auto;
+    /* Permet les interactions lorsque la modale est visible */
 }
 
 .modal-content-single {
@@ -621,10 +626,14 @@ p {
     position: relative;
     z-index: 1000;
     width: 600px;
-    max-width: 90%; /* Limite la largeur de la modale sur les petits écrans */
-    margin: 0 auto; /* Centrer la modale sur l'axe horizontal */
-    height: 80vh; /* 80% de la hauteur de l'écran */
-    overflow-y: auto; /* Pour permettre le défilement si nécessaire */
+    max-width: 90%;
+    /* Limite la largeur de la modale sur les petits écrans */
+    margin: 0 auto;
+    /* Centrer la modale sur l'axe horizontal */
+    height: 80vh;
+    /* 80% de la hauteur de l'écran */
+    overflow-y: auto;
+    /* Pour permettre le défilement si nécessaire */
 }
 
 
@@ -664,7 +673,7 @@ p {
 /* Styles généraux pour la page single photo */
 .main-content-post {
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px;
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -685,7 +694,8 @@ p {
 .photo-single-container .left-half {
     width: 50%;
 }
-.photo-single-container .right-half{
+
+.photo-single-container .right-half {
     width: 50%;
 }
 
@@ -796,7 +806,8 @@ p {
 }
 
 .navigation-arrows a:hover img {
-    opacity: 0.7; /* Ajout d'un effet de transparence au survol */
+    opacity: 0.7;
+    /* Ajout d'un effet de transparence au survol */
 }
 
 /* Section des photos similaires */
@@ -864,6 +875,23 @@ p {
         height: auto;
     }
 }
+
+/* Garder le header visible */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* S'assurer que le header est au-dessus du menu */
+}
+
+/* Ajouter un margin pour que le menu flyout commence sous le header */
+.elementor-menu-toggle.active+.elementor-nav-menu {
+    margin-top: 70px;
+    /* Ajuster selon la hauteur de ton header */
+}
+
 
 
 
@@ -946,6 +974,51 @@ p {
 /* ========== X. Responsive style (mobile) ========== */
 /* ====================================================== */
 
+
+@media only screen and (max-width: 2560px) {
+    #filters-form {
+        flex-wrap: nowrap;
+    }
+}
+
+
+/* Responsive pour les écrans de 1440px */
+@media only screen and (max-width: 1440px) {
+    #filters-form {
+        flex-wrap: nowrap;
+    }
+}
+
+
+
+/* Responsive pour les écrans de 1024px */
+@media only screen and (max-width: 1024px) {
+    #filters-form {
+        flex-wrap: nowrap;
+    }
+
+    .filters-section {
+        padding: 0px;
+
+    }
+
+    .filters-section .filter-item:last-child {
+        margin-left: 24%;
+    }
+
+    #photo-catalog {
+        max-width: 1148px;
+        width: 100%;
+    }
+
+    .custom-post-thumbnail {
+        max-width: 564px;
+        width: 48%;
+    }
+}
+
+
+
 @media (max-width: 768px) {
 
     /* ========== I. Global Styles ========== */
@@ -965,7 +1038,8 @@ p {
         line-height: 22px;
     }
 
-    p, .photo-description {
+    p,
+    .photo-description {
         font-size: 12px;
         line-height: 18px;
     }
@@ -973,11 +1047,13 @@ p {
     /* ========== II. Hero Section Styles ========== */
 
     .hero-section {
-        height: 70vh; /* Réduction de la hauteur sur mobile */
+        height: 70vh;
+        /* Réduction de la hauteur sur mobile */
     }
 
     .hero-background img {
-        width: 90%; /* Ajuste la taille de l'image */
+        width: 90%;
+        /* Ajuste la taille de l'image */
     }
 
     /* ========== III. Filters Section Styles ========== */
@@ -988,6 +1064,7 @@ p {
         gap: 20px;
         width: 90%;
     }
+
     .filters-section .filter-item {
         margin-left: 0;
     }
@@ -1010,33 +1087,41 @@ p {
     /* ========== IV. Photo Catalog Section Styles ========== */
 
     #photo-catalog {
-        width: 100%; /* Occupe toute la largeur de l'écran */
+        width: 100%;
+        /* Occupe toute la largeur de l'écran */
         padding: 10px 0;
     }
 
     .thumbnail-container-accueil {
-        flex-direction: column; /* Place les miniatures en colonne */
-        gap: 10px; /* Réduit l'espacement entre les éléments */
+        flex-direction: column;
+        /* Place les miniatures en colonne */
+        gap: 10px;
+        /* Réduit l'espacement entre les éléments */
     }
 
     .custom-post-thumbnail {
-        width: 100%; /* Les miniatures prennent 100% de la largeur */
-        height: auto; /* Ajuste la hauteur proportionnellement */
+        width: 100%;
+        /* Les miniatures prennent 100% de la largeur */
+        height: auto;
+        /* Ajuste la hauteur proportionnellement */
     }
 
     .thumbnail-overlay {
-        opacity: 1; /* Garde l'overlay visible par défaut sur mobile */
+        opacity: 1;
+        /* Garde l'overlay visible par défaut sur mobile */
     }
 
     /* ========== V. Lightbox ========== */
 
     .lightbox__image {
-        max-width: 90%; /* Réduction de la taille de l'image en lightbox */
+        max-width: 90%;
+        /* Réduction de la taille de l'image en lightbox */
         max-height: 90%;
     }
 
     .lightbox__controls {
-        width: 100%; /* Ajuste les contrôles à la taille de l'écran */
+        width: 100%;
+        /* Ajuste les contrôles à la taille de l'écran */
     }
 
     .lightbox__next {
@@ -1046,54 +1131,67 @@ p {
     /* ========== VI. Button "Load More" Styles ========== */
 
     #load-more-posts {
-        width: 100%; /* Le bouton prend toute la largeur disponible */
+        width: 100%;
+        /* Le bouton prend toute la largeur disponible */
         font-size: 14px;
         height: 45px;
     }
 
     /* ========== VII. Contact Modal ========== */
 
-    .custom-input, .custom-textarea {
-        width: 100%; /* Les champs prennent toute la largeur */
-        max-width: none; /* Enlève la largeur max fixe */
+    .custom-input,
+    .custom-textarea {
+        width: 100%;
+        /* Les champs prennent toute la largeur */
+        max-width: none;
+        /* Enlève la largeur max fixe */
     }
 
     .custom-submit {
-        width: 100%; /* Bouton 100% largeur */
+        width: 100%;
+        /* Bouton 100% largeur */
     }
 
     /* ========== VIII. Contact Modal (Single.php) ========== */
 
     .form-header-image {
-        width: 100%; /* Image prend toute la largeur */
-        height: auto; /* Ajuste la hauteur de l'image */
+        width: 100%;
+        /* Image prend toute la largeur */
+        height: auto;
+        /* Ajuste la hauteur de l'image */
     }
 
     /* ========== IX. Page Single photo ========== */
 
     .single-photo-container {
-        flex-direction: column; /* Les éléments s'empilent en colonne sur mobile */
+        flex-direction: column;
+        /* Les éléments s'empilent en colonne sur mobile */
     }
 
     .single-photo-container .left,
     .single-photo-container .right {
-        width: 100%; /* Prend toute la largeur disponible */
+        width: 100%;
+        /* Prend toute la largeur disponible */
         margin-bottom: 20px;
     }
 
     .single-photo-container .right img {
-        width: 100%; /* L'image de la photo s'adapte à l'écran */
+        width: 100%;
+        /* L'image de la photo s'adapte à l'écran */
         height: auto;
     }
 
     .related-photos {
-        flex-direction: column; /* Les photos similaires s'empilent */
+        flex-direction: column;
+        /* Les photos similaires s'empilent */
         gap: 10px;
     }
 
     .related-photo {
-        width: 100%; /* Chaque photo prend 100% de la largeur */
-        height: auto; /* Hauteur auto pour maintenir les proportions */
+        width: 100%;
+        /* Chaque photo prend 100% de la largeur */
+        height: auto;
+        /* Hauteur auto pour maintenir les proportions */
     }
 
     .main-content-post {
@@ -1127,7 +1225,8 @@ p {
         flex-direction: column;
         align-items: center;
         gap: 20px;
-        width: 100%; /* S'assurer que le conteneur prend toute la largeur disponible */
+        width: 100%;
+        /* S'assurer que le conteneur prend toute la largeur disponible */
         padding-bottom: 50px;
     }
 
@@ -1151,37 +1250,22 @@ p {
         padding-bottom: 0px;
     }
 
-}
-
-/* Responsive pour les écrans de 1024px */
-@media only screen and (max-width: 1024px) {
-    #filters-form{
-        flex-wrap: nowrap;
-    }
-
-    .filters-section {
-        padding: 0px;
-
-    }
-    
     .filters-section .filter-item:last-child {
-    margin-left: 24%;
-}
-
-    #photo-catalog {
-        max-width: 1148px;
-        width: 100%;
+        margin-left: 0;
     }
 
-    .custom-post-thumbnail {
-        max-width: 564px;
-        width: 48%;
+    .hfe-flyout-close {
+        top: 7px;
+        right: 6px;
+        padding-right: 5px;
+        background-color: white !important;
+        width: 62px !important;
+        height: 42px !important;
+        margin: 1px;
+        margin-right: -8px;
     }
-}
 
-/* Responsive pour les écrans de 1440px */
-@media only screen and (max-width: 1440px) {
-    #filters-form {
-        flex-wrap: nowrap;
-    }
+    
+    
+
 }
