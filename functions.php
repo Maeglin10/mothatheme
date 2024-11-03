@@ -8,14 +8,19 @@ function theme_enqueue_styles_scripts() {
     wp_enqueue_script('lightbox-script', get_template_directory_uri() . '/js/lightbox.js', array('jquery'), '1.0', true);
     wp_enqueue_script('single-photo-script', get_template_directory_uri() . '/js/single-photo.js', array('jquery'), '1.0', true);
     
+    // Générer le nonce et l'ajouter dans les variables accessibles au JavaScript
     wp_localize_script('custom-script', 'myAjax', array(
-        'ajax_url' => admin_url('admin-ajax.php')
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('load_photos_nonce') // Ajout du nonce
     ));
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles_scripts');
 
 // Fonction pour charger plus de photos via AJAX
 function load_more_photos() {
+    // Vérifiez la validité du nonce
+    check_ajax_referer('load_photos_nonce', 'nonce');
+
     $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
 
     $args_custom_posts = array(
@@ -39,13 +44,10 @@ function load_more_photos() {
                             <?php the_post_thumbnail('large'); ?>
                             <div class="thumbnail-overlay">
                                 <div class="overlay-content">
-                                    <!-- Icône au centre -->
                                     <div class="icon-center">
                                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icon.png" alt="icone-oeil">
                                     </div>
-                                    <!-- Référence de la photo -->
                                     <p class="photo-reference"><?php echo esc_html(get_field('reference')); ?></p>
-                                    <!-- Catégorie de la photo -->
                                     <p class="photo-category">
                                         <?php
                                         $related_categories = get_the_terms(get_the_ID(), 'categorie');
@@ -73,11 +75,8 @@ function load_more_photos() {
     die();
 }
 
-
-
 add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
 add_action('wp_ajax_load_more_photos', 'load_more_photos');
-
 
 function enqueue_single_photo_script() {
     if (is_singular('photo')) { // Vérifie si on est sur un post de type 'photo'
@@ -88,6 +87,9 @@ add_action('wp_enqueue_scripts', 'enqueue_single_photo_script');
 
 // Fonction pour charger des photos filtrées via AJAX
 function load_filtered_photos() {
+    // Vérifiez la validité du nonce
+    check_ajax_referer('load_photos_nonce', 'nonce');
+
     $paged = isset($_POST['page']) ? intval($_POST['page']) : 1;
     $category = isset($_POST['category']) && $_POST['category'] != 'all' ? $_POST['category'] : '';
     $format = isset($_POST['format']) && $_POST['format'] != 'all' ? $_POST['format'] : '';
